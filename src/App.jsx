@@ -1,10 +1,11 @@
-﻿import React from "react"
+import React from "react"
 import Navbar from "./Components/Navbar"
 import Hero from "./Components/Hero"
 import Services from "./Components/Services"
 import CTA from "./Components/CTA"
 import CaseStudies from "./Components/CaseStudies"
 import WorkProcess from "./Components/WorkProcess"
+import Team from "./Components/Team"
 
 const App = () => {
   return (
@@ -14,8 +15,9 @@ const App = () => {
         <Hero />
         <Services />
         <CTA />
-        <CaseStudies />
         <WorkProcess />
+        <Team />
+        <CaseStudies />
       </main>
     </div>
   )
