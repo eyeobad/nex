@@ -7,6 +7,7 @@ import CaseStudies from "./Components/CaseStudies"
 import WorkProcess from "./Components/WorkProcess"
 import Team from "./Components/Team"
 import Testimonials from "./Components/Testimonials"
+import Contact from "./Components/Contact"
 
 const App = () => {
   return (
@@ -16,10 +17,11 @@ const App = () => {
         <Hero />
         <Services />
         <CTA />
+        <CaseStudies />
         <WorkProcess />
         <Team />
         <Testimonials />
-        <CaseStudies />
+        <Contact />
       </main>
     </div>
   )
