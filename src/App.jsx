@@ -6,6 +6,7 @@ import CTA from "./Components/CTA"
 import CaseStudies from "./Components/CaseStudies"
 import WorkProcess from "./Components/WorkProcess"
 import Team from "./Components/Team"
+import Testimonials from "./Components/Testimonials"
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <CTA />
         <WorkProcess />
         <Team />
+        <Testimonials />
         <CaseStudies />
       </main>
     </div>
