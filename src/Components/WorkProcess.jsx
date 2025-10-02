@@ -46,7 +46,7 @@ const steps = [
   },
 ]
 
-const WorkProcess = () => {
+const WorkProcess = ({ id }) => {
   const [activeStep, setActiveStep] = useState(1)
 
   const toggleStep = (id) => {
@@ -54,7 +54,7 @@ const WorkProcess = () => {
   }
 
   return (
-    <section className="relative bg-black py-24 text-white">
+    <section id={id} className="relative bg-black py-24 text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-4 sm:px-8 lg:px-12 xl:px-[100px]">
         <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="inline-flex max-w-xl rounded-[7px] bg-black px-[7px] py-[10px] shadow-[0px_3px_0px_#191A23]">

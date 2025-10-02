@@ -39,6 +39,8 @@
     />
     <meta property="og:url" content="https://nexdigital.name.ng/" />
     <meta property="og:image" content="https://nexdigital.name.ng/nex.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -57,16 +59,23 @@
         "name": "Nex Digital Agency",
         "url": "https://nexdigital.name.ng/",
         "logo": "https://nexdigital.name.ng/nex.jpg",
-        "image": "https://nexdigital.name.ng/nex.jpg",
+        "image": [
+          "https://nexdigital.name.ng/nex.jpg"
+        ],
         "description": "Nex Digital Agency is a growth-focused digital marketing company in Nigeria. We help businesses scale through SEO, PPC, social media marketing, and automation.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Lagos",
-          "addressCountry": "NG"
+          "addressCountry": {
+            "@type": "Country",
+            "name": "NG"
+          }
         },
+        "telephone": "+2349038357956",
+        "priceRange": "$$",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+234-903-835-7956",
+          "telephone": "+2349038357956",
           "contactType": "sales",
           "areaServed": "NG",
           "availableLanguage": "en"
@@ -74,6 +83,79 @@
         "sameAs": [
           "https://www.tiktok.com/@nexxtdigitalagency"
         ]
+      }
+    </script>
+
+    <!-- Schema Markup for Services -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "SEO Services",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Nex Digital Agency",
+          "url": "https://nexdigital.name.ng"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        "description": "Professional SEO services in Nigeria to help businesses rank higher, attract quality traffic, and increase online visibility."
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "PPC Management",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Nex Digital Agency",
+          "url": "https://nexdigital.name.ng"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        "description": "Expert PPC management including Google Ads, Facebook Ads, and TikTok campaigns tailored to deliver measurable ROI."
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Social Media Marketing",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Nex Digital Agency",
+          "url": "https://nexdigital.name.ng"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        "description": "Social media marketing services to grow brand awareness, engagement, and conversions on TikTok, Instagram, and Facebook."
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Content Marketing & Automation",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Nex Digital Agency",
+          "url": "https://nexdigital.name.ng"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        "description": "Content creation, email marketing, and marketing automation services to help Nigerian businesses scale faster."
       }
     </script>
   </head>

@@ -31,7 +31,7 @@ const testimonials = [
   },
 ]
 
-const Testimonials = () => {
+const Testimonials = ({ id }) => {
   const [active, setActive] = useState(0)
   const sectionRef = useRef(null)
   const cardRefs = useRef([])
@@ -68,7 +68,7 @@ const Testimonials = () => {
   const goNext = () => setActive((prev) => (prev + 1) % total)
 
   return (
-    <section ref={sectionRef} className="relative bg-black py-24 text-white">
+    <section id={id} ref={sectionRef} className="relative bg-black py-24 text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-14 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[100px]">
         <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="inline-flex rounded-[9px] border border-white/15 bg-black/85 px-[12px] py-[12px] shadow-[0px_6px_0px_#191A23]">

@@ -2,9 +2,9 @@
 import { ArrowRight } from "lucide-react"
 import Illustration from "../assets/Illustration.svg"
 
-const CTA = () => {
+const CTA = ({ id }) => {
   return (
-    <section className="relative overflow-hidden bg-black text-white">
+    <section id={id} className="relative overflow-hidden bg-black text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-12 px-4 pb-20 pt-12 sm:px-10 md:flex-row md:items-center md:justify-center md:px-16 xl:px-[100px]">
         <div className="relative flex w-full max-w-[1240px] flex-col overflow-hidden rounded-[32px] bg-[#F3F3F3] px-6 py-10 text-black shadow-[0px_8px_0px_#191A23] sm:px-10 md:flex-row md:items-center md:justify-between md:gap-16 md:rounded-[45px] md:px-[60px] md:py-[70px]">
           <div className="flex max-w-[520px] flex-col gap-6 text-left">

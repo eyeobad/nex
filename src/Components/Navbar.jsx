@@ -3,11 +3,11 @@ import { gsap } from "gsap"
 import LogoMark from "../assets/logo.png"
 
 const primaryLinks = [
-  "About us",
-  "Services",
-  "Use Cases",
-  "Pricing",
-  "Blog",
+  { label: "About us", href: "#team" },
+  { label: "Services", href: "#services" },
+  { label: "Use Cases", href: "#process" },
+  { label: "Pricing", href: "#quote" },
+  { label: "Blog", href: "#footer" },
 ]
 
 const FunMenuIcon = ({ className = "" }) => (
@@ -146,11 +146,11 @@ const Navbar = () => {
         <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 lg:flex">
           {primaryLinks.map((link) => (
             <a
-              key={link}
-              href="#"
+              key={link.label}
+              href={link.href}
               className="tracking-wide text-white/70 transition-all duration-200 hover:text-white"
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </nav>
@@ -201,12 +201,12 @@ const Navbar = () => {
           <div className="space-y-3">
             {primaryLinks.map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 onClick={closeMenu}
                 className="mobile-link block rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-3 text-base font-semibold tracking-wide text-white/90 shadow-[0_14px_40px_rgba(216,31,38,0.2)] transition duration-200 hover:border-[#D81F26] hover:bg-black/70"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>

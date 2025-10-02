@@ -173,7 +173,7 @@ const services = [
   },
 ]
 
-const Services = () => {
+const Services = ({ id }) => {
   const cardRefs = useRef([])
   const [visibleCards, setVisibleCards] = useState(() => services.map(() => false))
 
@@ -205,7 +205,7 @@ const Services = () => {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-black text-white">
+    <section id={id} className="relative overflow-hidden bg-black text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 pb-20 pt-12 sm:px-10 md:px-16 xl:px-[100px]">
         <header className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div className="inline-flex rounded-[7px] bg-black px-[7px] py-1 shadow-[0px_3px_0px_#191A23]">

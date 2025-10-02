@@ -71,7 +71,7 @@ const TeamCard = forwardRef(({ member }, ref) => (
 
 TeamCard.displayName = "TeamCard"
 
-const Team = () => {
+const Team = ({ id }) => {
   const sectionRef = useRef(null)
   const cardRefs = useRef([])
 
@@ -103,7 +103,7 @@ const Team = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-black py-24">
+    <section id={id} ref={sectionRef} className="relative bg-black py-24">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-14 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[100px]">
         <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="inline-flex rounded-[9px] border border-white/15 bg-black/85 px-[12px] py-[12px] shadow-[0px_6px_0px_#191A23]">
