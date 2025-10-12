@@ -1,4 +1,11 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
 import { ArrowUpRight } from "lucide-react"
 
 const studies = [
@@ -20,8 +27,31 @@ const studies = [
 ]
 
 const CaseStudies = ({ id }) => {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+
+    const ctx = gsap.context(() => {
+      gsap.from(".case-card", {
+        autoAlpha: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+
   return (
-    <section id={id} className="relative bg-black py-24 text-white">
+    <section id={id} ref={sectionRef} className="relative bg-black py-24 text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[100px]">
         <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="inline-flex rounded-[9px] border border-white/12 bg-black/85 px-[12px] py-[12px] shadow-[0px_6px_0px_#191A23]">
@@ -39,7 +69,7 @@ const CaseStudies = ({ id }) => {
             {studies.map((study, index) => (
               <article
                 key={study.title}
-                className="flex flex-1 flex-col gap-6 px-6 py-10 sm:px-10 lg:px-12"
+                className="case-card flex flex-1 flex-col gap-6 px-6 py-10 sm:px-10 lg:px-12"
               >
                 <p className="text-sm leading-relaxed text-white/85 sm:text-[16px] sm:leading-[24px] lg:text-[18px] lg:leading-[26px]">
                   {study.title}

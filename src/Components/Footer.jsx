@@ -1,5 +1,12 @@
 
-import React from "react"
+import React, { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
 import { Linkedin, Twitter, Facebook } from "lucide-react"
 import Logo from "../assets/logo.png"
 
@@ -17,7 +24,30 @@ const socials = [
   { icon: Twitter, label: "Twitter", href: "https://www.twitter.com" },
 ]
 
+
 const Footer = ({ id }) => {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+
+    const ctx = gsap.context(() => {
+      gsap.from(".footer-card", {
+        autoAlpha: 0,
+        y: 30,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+
   return (
     <footer className="relative bg-black py-24 text-white">
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[100px]">

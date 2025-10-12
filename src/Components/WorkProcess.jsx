@@ -1,4 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
 import { Minus, Plus } from "lucide-react"
 
 const steps = [
@@ -46,7 +53,34 @@ const steps = [
   },
 ]
 
+
 const WorkProcess = ({ id }) => {
+  const sectionRef = useRef(null)
+  const itemRefs = useRef([])
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const cards = itemRefs.current.filter(Boolean)
+    if (!cards.length) return
+
+    const ctx = gsap.context(() => {
+      gsap.from(cards, {
+        autoAlpha: 0,
+        y: 24,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+
   const [activeStep, setActiveStep] = useState(1)
 
   const toggleStep = (id) => {
@@ -54,7 +88,7 @@ const WorkProcess = ({ id }) => {
   }
 
   return (
-    <section id={id} className="relative bg-black py-24 text-white">
+    <section id={id} ref={sectionRef} className="relative bg-black py-24 text-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-4 sm:px-8 lg:px-12 xl:px-[100px]">
         <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="inline-flex max-w-xl rounded-[7px] bg-black px-[7px] py-[10px] shadow-[0px_3px_0px_#191A23]">
@@ -68,14 +102,17 @@ const WorkProcess = ({ id }) => {
         </header>
 
         <div className="flex flex-col gap-6">
-          {steps.map((step) => {
+          {steps.map((step, index) => {
             const isActive = activeStep === step.id
             const isDark = step.theme === "dark"
 
             return (
               <article
                 key={step.id}
-                className={`relative overflow-hidden rounded-[45px] border px-6 py-8 shadow-[0px_5px_0px_#191A23] transition-colors duration-300 sm:px-10 sm:py-10 lg:px-[60px] lg:py-[41px] ${
+                ref={(el) => {
+                  itemRefs.current[index] = el
+                }}
+                className={`process-card relative overflow-hidden rounded-[45px] border px-6 py-8 shadow-[0px_5px_0px_#191A23] transition-colors duration-300 sm:px-10 sm:py-10 lg:px-[60px] lg:py-[41px] ${
                   isDark ? "bg-black border-black" : "bg-[#F3F3F3] border-black text-black"
                 }`}
               >

@@ -1,4 +1,5 @@
-﻿import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 import { gsap } from "gsap"
 import Illustration from "../assets/Illustration.svg"
 import LogoMark from "../assets/logo.png"
@@ -48,7 +49,7 @@ const Hero = ({ id }) => {
             <span>Digital agency</span>
           </div>
           <h1 className="hero-headline mt-6 text-4xl font-space-grotesk font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-            Navigating the digital landscape for success
+            Accelerating digital presence for relentless growth
           </h1>
    
           <p className="hero-copy mt-6 text-base leading-relaxed text-white/70">
@@ -56,16 +57,15 @@ const Hero = ({ id }) => {
               <img src={LogoMark} alt="neX" className="h-8 w-auto pb-2" loading="lazy" />
               
             </span>
-            &nbsp;digital agency helps businesses grow and succeed online through a range of services including SEO,
-            workflow automation, branding, ad campaigns, and web development.
+            &nbsp;digital agency engineers automated, AI-powered growth systems. We turn quiet online presences into always-on revenue engines that capture leads, nurture demand, and scale operations.
           </p>
           <div className="hero-cta mt-10 flex flex-wrap items-center gap-5">
-            <a
-              href="#"
+            <Link
+              to="/quote#contact"
               className="rounded-full border border-white/25 bg-black/40 px-7 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(216,31,38,0.25)] transition duration-200 hover:border-[#D81F26] hover:bg-black/60 hover:text-white"
             >
               Book a consultation
-            </a>
+            </Link>
           </div>
 
           <div className="hero-logos mt-16">
