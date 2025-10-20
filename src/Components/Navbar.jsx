@@ -1,22 +1,24 @@
-﻿import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Link } from "react-router-dom"
+import { ChevronDown } from "lucide-react"
 import LogoMark from "../assets/logo.png"
 
 const primaryLinks = [
-  { label: "About us", href: "/about" },
   {
     label: "Services",
     href: "/services",
     submenu: [
-      { label: "SEO Services", href: "/services/seo" },
-      { label: "PPC Management", href: "/services/ppc" },
       { label: "Branding & Identity", href: "/services/branding" },
-      { label: "Website Development", href: "/services/webite" },
+      { label: "Smart Website Development", href: "/services/web" },
+      { label: "SEO Services", href: "/services/seo" },
+      { label: "Strategic Lead Generation", href: "/services/lead" },
+      { label: "Advanced Business Process Automation", href: "/services/automation" },
+      { label: "Analytics & Tracking", href: "/services/analytics" },
     ],
   },
+  { label: "About us", href: "/about" },
   { label: "Use Cases", href: "/process" },
-  { label: "Pricing", href: "/quote" },
   { label: "Blog", href: "/blog" },
 ]
 
@@ -68,6 +70,7 @@ const FunCloseIcon = ({ className = "" }) => (
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [expandedMenu, setExpandedMenu] = useState(null)
   const overlayRef = useRef(null)
   const panelRef = useRef(null)
   const tlRef = useRef(null)
@@ -125,7 +128,13 @@ const Navbar = () => {
   }, [])
 
   const toggleMenu = () => setIsOpen((prev) => !prev)
-  const closeMenu = () => setIsOpen(false)
+  const closeMenu = () => {
+    setIsOpen(false)
+    setExpandedMenu(null)
+  }
+  const toggleSubmenu = (label) => {
+    setExpandedMenu((prev) => (prev === label ? null : label))
+  }
 
   return (
     <header className="relative z-50 border-b border-white/10 bg-black/92 backdrop-blur-xl">
@@ -178,12 +187,14 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden items-center lg:flex">
-          <Link
-            to="/quote"
+          <a
+            href="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border border-white/20 bg-black/40 px-6 py-2 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(216,31,38,0.18)] transition duration-200 hover:border-[#D81F26] hover:bg-black/60 hover:text-white"
           >
             Request a quote
-          </Link>
+          </a>
         </div>
 
         <button
@@ -221,39 +232,67 @@ const Navbar = () => {
           </Link>
 
           <div className="space-y-3">
-            {primaryLinks.map((link) => (
-              <div key={link.label}>
+            {primaryLinks.map((link) => {
+              if (link.submenu) {
+                const open = expandedMenu === link.label
+                return (
+                  <div key={link.label} className="rounded-2xl border border-white/15 bg-white/[0.05]">
+                    <button
+                      type="button"
+                      onClick={() => toggleSubmenu(link.label)}
+                      className="mobile-link flex w-full items-center justify-between gap-2 px-5 py-3 text-left text-base font-semibold tracking-wide text-white/90"
+                      aria-expanded={open}
+                    >
+                      <span>{link.label}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-[max-height] duration-300 ease-out ${
+                        open ? "max-h-96 border-t border-white/10" : "max-h-0"
+                      }`}
+                    >
+                      <ul className="space-y-1 px-5 py-3">
+                        {link.submenu.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              to={item.href}
+                              onClick={closeMenu}
+                              className="block rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/80 transition hover:border-[#D81F26] hover:text-white"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )
+              }
+
+              return (
                 <Link
+                  key={link.label}
                   to={link.href}
                   onClick={closeMenu}
                   className="mobile-link block rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-3 text-base font-semibold tracking-wide text-white/90 shadow-[0_14px_40px_rgba(216,31,38,0.2)] transition duration-200 hover:border-[#D81F26] hover:bg-black/70"
                 >
                   {link.label}
                 </Link>
-                {link.submenu ? (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {link.submenu.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.href}
-                        onClick={closeMenu}
-                        className="block rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/80 transition hover:border-[#D81F26] hover:text-white"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
+              )
+            })}
           </div>
-          <Link
-            to="/quote"
+          <a
+            href="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
             className="mobile-link mt-9 flex items-center justify-center gap-2 rounded-full border border-[#D81F26] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_18px_45px_rgba(216,31,38,0.25)] transition duration-200 hover:bg-[#D81F26]/30"
           >
             Get a quote
-          </Link>
+          </a>
         </div>
       </div>
     </header>
@@ -261,3 +300,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

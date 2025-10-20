@@ -39,7 +39,7 @@ const GrowthPartner = ({ id }) => {
           </p>
           <div className="flex items-start gap-3 rounded-[18px] border border-[#D81F26]/40 bg-[#D81F26]/10 px-5 py-4 text-left text-[15px] text-white/80 sm:text-base">
             <span className="mt-1 h-3 w-3 shrink-0 rounded-full bg-[#D81F26]" />
-            Our focus is on delivering scalable, automated, and highly efficient growth—so your team can stay focused on high-value strategic initiatives.
+            Our focus is on delivering scalable, automated, and highly efficient growth-so your team can stay focused on high-value strategic initiatives.
           </div>
         </div>
         <div className="growth-text h-full overflow-hidden rounded-[32px] border border-white/10">
@@ -55,4 +55,6 @@ const GrowthPartner = ({ id }) => {
   )
 }
 
-export default GrowthPartner
+export default GrowthPartner
+
+

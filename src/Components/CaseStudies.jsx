@@ -10,19 +10,25 @@ import { ArrowUpRight } from "lucide-react"
 
 const studies = [
   {
-    title:
-      "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
-    href: "#",
+    headline: "Fintech lender triples SQLs with automation-ready website",
+    summary:
+      "Rebuilt the digital experience with AI qualifying flows, automated documentation, and segment-specific messaging-driving 312% more sales-qualified leads in 90 days.",
+    metric: "312% lift in SQL volume",
+    href: "#fintech-growth",
   },
   {
-    title:
-      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
-    href: "#",
+    headline: "Healthcare group cuts lead response time from 2 days to 12 minutes",
+    summary:
+      "Implemented RevOps automations, multi-channel nurturing, and experiment-led creative testing that doubled consultation bookings while reducing cost per acquisition by 41%.",
+    metric: "41% lower CPA",
+    href: "#healthcare-automation",
   },
   {
-    title:
-      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
-    href: "#",
+    headline: "B2B SaaS brand secures 5x content ROI with topical authority programme",
+    summary:
+      "Delivered a research-backed SEO and content engine, blending executive insights with product education, resulting in a 5x increase in pipeline attributed to organic search.",
+    metric: "5x organic pipeline",
+    href: "#saas-seo",
   },
 ]
 
@@ -60,7 +66,7 @@ const CaseStudies = ({ id }) => {
             </h2>
           </div>
           <p className="max-w-2xl text-[13px] leading-relaxed text-white/65 sm:text-[15px]">
-            Explore real-world stories of how .nex pairs strategy, performance media, and storytelling to unlock measurable growth across industries.
+            Explore real-world stories of how Nex Digital Agency pairs strategy, performance media, and storytelling to unlock measurable growth across industries.
           </p>
         </header>
 
@@ -68,12 +74,17 @@ const CaseStudies = ({ id }) => {
           <div className="flex flex-col divide-y divide-white/10 sm:flex-row sm:gap-16 sm:divide-y-0 sm:divide-x sm:divide-white/10">
             {studies.map((study, index) => (
               <article
-                key={study.title}
+                key={study.headline}
                 className="case-card flex flex-1 flex-col gap-6 px-6 py-10 sm:px-10 lg:px-12"
               >
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#D81F26]/80">{`Case ${index + 1}`}</span>
+                <h3 className="font-space-grotesk text-[20px] font-semibold text-white sm:text-[24px] lg:text-[26px]">{study.headline}</h3>
                 <p className="text-sm leading-relaxed text-white/85 sm:text-[16px] sm:leading-[24px] lg:text-[18px] lg:leading-[26px]">
-                  {study.title}
+                  {study.summary}
                 </p>
+                <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                  {study.metric}
+                </div>
                 <a
                   href={study.href}
                   className="group inline-flex items-center gap-3 text-sm font-semibold text-[#D81F26] sm:text-base lg:text-[20px] lg:leading-[28px]"
@@ -96,3 +107,5 @@ const CaseStudies = ({ id }) => {
 }
 
 export default CaseStudies
+
+

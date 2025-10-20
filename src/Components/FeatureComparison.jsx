@@ -27,26 +27,26 @@ const features = [
   },
   {
     category: "Business Automation Suite",
-    foundation: "–",
+    foundation: "",
     accelerator: "CRM, Email, Booking",
     transformation: "CRM, Email, Booking",
   },
   {
     category: "Foundational Branding",
-    foundation: "–",
-    accelerator: "–",
+    foundation: "",
+    accelerator: "",
     transformation: "Full Package",
   },
   {
     category: "Ad Campaign Management",
-    foundation: "–",
-    accelerator: "–",
-    transformation: "Yes · Google, Meta, X",
+    foundation: "",
+    accelerator: "",
+    transformation: "Yes  Google, Meta, X",
   },
   {
     category: "Proactive Lead Scraping",
-    foundation: "–",
-    accelerator: "–",
+    foundation: "",
+    accelerator: "",
     transformation: "Yes",
   },
 ]
@@ -85,7 +85,7 @@ const FeatureComparison = ({ id }) => {
             Comprehensive feature comparison across packages
           </h3>
           <p className="max-w-3xl text-[15px] leading-relaxed text-white/70 sm:text-base md:text-[18px] md:leading-[26px]">
-            Understand the distinct advantages of each package—from foundational website solutions to advanced growth and market domination strategies.
+            Understand the distinct advantages of each package, from foundational website solutions to advanced growth and market domination strategies.
           </p>
         </header>
 
@@ -110,9 +110,9 @@ const FeatureComparison = ({ id }) => {
               ))}
               <tr className="comparison-row border-t border-white/10 bg-[#0B0B0E] font-space-grotesk text-sm uppercase tracking-[0.22em] text-white">
                 <th className="px-6 py-4 sm:px-8">Pricing</th>
-                <td className="px-6 py-4 sm:px-8">Setup $1,000 · $100/mo</td>
-                <td className="px-6 py-4 sm:px-8">Setup $2,000 · $200/mo</td>
-                <td className="px-6 py-4 sm:px-8">Setup $5,000 · $400/mo</td>
+                <td className="px-6 py-4 sm:px-8">Setup $1,000 $100/mo</td>
+                <td className="px-6 py-4 sm:px-8">Setup $2,000 $200/mo</td>
+                <td className="px-6 py-4 sm:px-8">Setup $5,000 $400/mo</td>
               </tr>
             </tbody>
           </table>
@@ -123,3 +123,5 @@ const FeatureComparison = ({ id }) => {
 }
 
 export default FeatureComparison
+
+

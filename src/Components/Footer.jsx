@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Link } from "react-router-dom"
 
 if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger)
@@ -11,11 +12,12 @@ import { Linkedin, Twitter, Facebook } from "lucide-react"
 import Logo from "../assets/logo.png"
 
 const navLinks = [
-  { label: "About us", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Use Cases", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Blog", href: "#" },
+  { label: "About us", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Use Cases", to: "/process" },
+  { label: "Blog", to: "/blog" },
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms of Service", to: "/terms" },
 ]
 
 const socials = [
@@ -57,13 +59,13 @@ const Footer = ({ id }) => {
               <img src={Logo} alt=".neX logo" className="h-12 w-auto" />
               <nav className="flex flex-wrap items-center gap-6 text-[16px] sm:text-[18px]">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
-                    href={link.href}
+                    to={link.to}
                     className="underline decoration-white/40 decoration-1 underline-offset-4 transition hover:text-white"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -87,9 +89,9 @@ const Footer = ({ id }) => {
                 Contact us:
               </span>
               <div className="flex flex-col gap-4 text-[16px] sm:text-[18px]">
-                <p>Email: info@positivus.com</p>
-                <p>Phone: 555-567-8901</p>
-                <p>Address: 1234 Main St, Moonstone City, Stardust State 12345</p>
+                <p>Email: info@nexdigital.name.ng</p>
+                <p>Phone: 09038357956</p>
+                
               </div>
             </div>
 
@@ -112,9 +114,17 @@ const Footer = ({ id }) => {
             <span className="h-px w-full bg-black/80" aria-hidden />
             <div className="flex flex-col gap-6 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between sm:text-[16px]">
               <p>&copy; 2025 .neX All Rights Reserved.</p>
-              <a href="#" className="underline transition hover:text-white">
-                Privacy Policy
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link to="/privacy" className="underline transition hover:text-white">
+                  Privacy Policy
+                </Link>
+                <span aria-hidden className="text-white/40">
+                  |
+                </span>
+                <Link to="/terms" className="underline transition hover:text-white">
+                  Terms of Service
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -124,3 +134,5 @@ const Footer = ({ id }) => {
 }
 
 export default Footer
+
+

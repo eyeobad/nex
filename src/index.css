@@ -1,6 +1,9 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-@import "tailwindcss";
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 
+/* -----------------------------
+   Base setup and typography
+----------------------------- */
 @layer base {
   :root {
     color-scheme: dark;
@@ -12,14 +15,155 @@
     margin: 0;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif;
   }
 }
 
+/* Space Grotesk utility class */
 .font-space-grotesk {
   font-family: 'Space Grotesk', sans-serif;
+}
+
+/* -----------------------------
+   General Dark Background Styles
+----------------------------- */
+section {
+  background: radial-gradient(
+      900px 600px at 15% -10%,
+      rgba(216, 31, 38, 0.18),
+      transparent
+    ),
+    #000;
+}
+
+
+
+/* -----------------------------
+   GHL Embed – Layout and Safety
+----------------------------- */
+
+
+/* GHL Embed – single authoritative rule */
+.contact-form-embed iframe,
+iframe[id^="inline-"] {
+  width: 100%;
+  display: block;
+  border: none;
+  border-radius: 6px;
+  /* Shorter defaults; GHL script will expand beyond these as needed */
+  min-height: clamp(480px, 70vh, 900px);
+  background: transparent;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  iframe[id^="inline-"] {
+    min-height: clamp(500px, 72vh, 960px);
+  }
+}
+
+/* Small phones */
+@media (max-width: 640px) {
+  iframe[id^="inline-"] {
+    min-height: clamp(520px, 78vh, 1000px);
+  }
+}
+
+/* Optional background polish */
+section {
+  background:
+    radial-gradient(900px 600px at 15% -10%, rgba(216,31,38,.18), transparent),
+    #000;
+}
+/* Container */
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.28rem 1.25rem;
+  background: linear-gradient(90deg, rgba(19,10,12,.94), rgba(9,9,12,.92));
+  border-bottom: 1px solid rgba(216,31,38,.28);
+  box-shadow: 0 18px 45px rgba(216,31,38,.12);
+}
+
+/* Track */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+  transform: translateX(-50%);           /* start half off to the left */
+  animation: marquee-ltr 26s linear infinite;
+}
+
+/* Left → Right seamless loop */
+@keyframes marquee-ltr {
+  from { transform: translateX(-50%); }  /* second copy aligned left edge */
+  to   { transform: translateX(0%); }    /* first copy aligned left edge */
+}
+
+/* A single “group” must fill (at least) the viewport */
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 0 0 auto;            /* don't shrink */
+  min-width: 100vw;          /* critical: each copy spans the viewport */
+  padding-right: 0;          /* no seam/gap */
+  justify-content: center;   /* distribute items if there are few */
+}
+
+/* Pills */
+.marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .48rem;
+  padding: .26rem .78rem;
+  white-space: nowrap;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  transition: transform .3s ease, color .3s ease, border-color .3s ease;
+  flex: 0 0 auto;
+}
+.marquee-pill:hover { transform: translateY(-2px); color: #fff; }
+
+/* Fades (optional) */
+.marquee-fade-left,
+.marquee-fade-right {
+  position: absolute; top: 0; width: 70px; height: 100%; pointer-events: none;
+}
+.marquee-fade-left  { left: 0;  background: linear-gradient(90deg, rgba(19,10,12,1), rgba(19,10,12,0)); }
+.marquee-fade-right { right: 0; background: linear-gradient(270deg, rgba(19,10,12,1), rgba(19,10,12,0)); }
+
+/* Pause-on-hover */
+.marquee-container:hover .marquee-track { animation-play-state: paused; }
+
+/* Responsiveness: slow down slightly */
+@media (max-width:1024px){ .marquee-track { animation-duration: 30s; } }
+@media (max-width:640px) {
+  .marquee-track { animation-duration: 34s; }
+  .marquee-group { gap: 1.2rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; transform: translateX(0); }
+}
+
+.image-skeleton {
+  background: linear-gradient(90deg, rgba(30, 30, 36, 0.6), rgba(57, 57, 63, 0.65), rgba(30, 30, 36, 0.6));
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

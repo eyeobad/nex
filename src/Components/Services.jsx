@@ -22,7 +22,8 @@ const services = [
       { text: "Branding", background: "#000000", color: "#FFFFFF", width: 170 },
     ],
     card: { background: "#F3F3F3", border: "#000000", text: "#000000" },
-    description: "Create a cohesive brand identity that becomes the blueprint for every growth initiative.",
+    description:
+      "Research-led positioning, messaging, and visual systems that give marketing, sales, and product teams a unified story.",
     illustration: { src: ContentIllustration, alt: "Brand strategy illustration", width: 210, height: 180 },
   },
   {
@@ -32,7 +33,8 @@ const services = [
       { text: "Websites", background: "#000000", color: "#FFFFFF", width: 180 },
     ],
     card: { background: "#D81F26", border: "#000000", text: "#000000" },
-    description: "Build AI-powered, high-converting digital experiences that capture leads 24/7.",
+    description:
+      "Conversion-focused web experiences with AI booking flows, CRM integrations, and testing cadences baked in.",
     illustration: { src: SeoIllustration, alt: "Website performance illustration", width: 210, height: 170 },
   },
   {
@@ -42,7 +44,8 @@ const services = [
       { text: "Visibility", background: "#FFFFFF", color: "#000000", width: 190 },
     ],
     card: { background: "#000000", border: "#000000", text: "#FFFFFF" },
-    description: "Dominate strategic search terms with ongoing SEO programmes that scale authority.",
+    description:
+      "Technical excellence, topical authority, and content production that move the keywords tied to revenue.",
     illustration: { src: AnalyticsIllustration, alt: "SEO analytics illustration", width: 210, height: 170 },
   },
   {
@@ -52,7 +55,8 @@ const services = [
       { text: "Acquisition", background: "#000000", color: "#FFFFFF", width: 220 },
     ],
     card: { background: "#F3F3F3", border: "#000000", text: "#000000" },
-    description: "Fill your pipeline fast with precision multi-channel campaigns and advanced scraping.",
+    description:
+      "Paid media, outbound, and nurture automation that keep your pipeline filled with sales-ready opportunities.",
     illustration: { src: PpcIllustration, alt: "Lead generation illustration", width: 210, height: 170 },
   },
   {
@@ -62,8 +66,20 @@ const services = [
       { text: "Automation", background: "#000000", color: "#FFFFFF", width: 220 },
     ],
     card: { background: "#D81F26", border: "#000000", text: "#000000" },
-    description: "Design custom workflows that automate operations, nurture leads, and centralise communication.",
+    description:
+      "RevOps workflows and communication hubs that eliminate manual busywork while keeping teams in control.",
     illustration: { src: EmailIllustration, alt: "Automation workflow illustration", width: 210, height: 190, flip: true },
+  },
+  {
+    id: "analytics",
+    titleSegments: [
+      { text: "Growth", background: "#000000", color: "#FFFFFF", width: 160 },
+      { text: "Analytics", background: "#000000", color: "#FFFFFF", width: 195 },
+    ],
+    card: { background: "#101014", border: "#000000", text: "#FFFFFF" },
+    description:
+      "End to end measurement, attribution, and experimentation frameworks that prove what works and why.",
+    illustration: { src: SocialIllustration, alt: "Analytics reporting illustration", width: 210, height: 170 },
   },
 ]
 
@@ -100,7 +116,7 @@ const Services = ({ id }) => {
             </h2>
           </div>
           <p className="max-w-xl text-[14px] leading-relaxed text-white/75 sm:text-sm md:text-[18px] md:leading-[23px]">
-            We offer a range of services to help businesses grow and succeed online. These include:
+            Nex Digital Agency combines strategy, creative, media, and automation into service lines built to solve the growth constraints teams face most often.
           </p>
         </header>
 
@@ -108,15 +124,15 @@ const Services = ({ id }) => {
           {services.map((service) => (
             <article
               key={service.id}
-              className="service-card box-border flex w-full max-w-[600px] flex-col gap-8 rounded-[45px] border px-6 py-8 shadow-[0px_5px_0px_#191A23] sm:px-8 sm:py-10 md:h-[310px] md:flex-row md:items-center md:justify-between md:gap-[77px] md:px-[50px] md:py-[50px]"
+              className="service-card box-border flex w-full max-w-[600px] flex-col gap-8 rounded-[45px] border px-6 py-8 shadow-[0px_5px_0px_#191A23] sm:px-8 sm:py-10 md:flex-row md:items-center md:justify-between md:gap-[56px] md:px-[50px] md:py-[48px]"
               style={{
                 backgroundColor: service.card.background,
                 borderColor: service.card.border,
                 color: service.card.text,
               }}
             >
-              <div className="flex w-full flex-col justify-between gap-[60px] md:w-auto" style={{ maxWidth: "221px", height: "210px" }}>
-                <div className="flex flex-col gap-[10px]">
+              <div className="flex w-full flex-col justify-between gap-6 md:w-auto" style={{ maxWidth: "252px" }}>
+                <div className="flex flex-col gap-[12px]">
                   {service.titleSegments.map((segment) => (
                     <span
                       key={`${service.id}-${segment.text}`}
@@ -131,14 +147,15 @@ const Services = ({ id }) => {
                       {segment.text}
                     </span>
                   ))}
+                  {service.description && (
+                    <p
+                      className="text-sm leading-relaxed text-black/70 sm:text-base"
+                      style={{ color: service.card.text === "#FFFFFF" ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)" }}
+                    >
+                      {service.description}
+                    </p>
+                  )}
                 </div>
-
-                <p
-                  className="text-[15px] leading-relaxed sm:text-base"
-                  style={{ color: service.card.text === "#FFFFFF" ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)" }}
-                >
-                  {service.description}
-                </p>
 
                 <Link
                   to={`/services/${service.id}`}

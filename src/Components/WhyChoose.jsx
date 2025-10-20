@@ -64,20 +64,12 @@ const WhyChoose = ({ id }) => {
           </p>
         </header>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {differentiators.map((item) => (
-            <article
-              key={item.title}
-              className="why-card flex h-full flex-col gap-4 rounded-[28px] border border-white/10 bg-[#101014] px-6 py-8 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition hover:border-[#D81F26] sm:px-8"
-            >
-              <h4 className="font-space-grotesk text-[22px] font-semibold text-white">{item.title}</h4>
-              <p className="text-[15px] leading-relaxed text-white/70 sm:text-base">{item.description}</p>
-            </article>
-          ))}
-        </div>
+      
       </div>
     </section>
   )
 }
 
 export default WhyChoose
+
+

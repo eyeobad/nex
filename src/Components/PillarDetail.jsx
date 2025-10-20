@@ -64,3 +64,5 @@ const PillarDetail = ({ id, eyebrow, title, description, items }) => {
 }
 
 export default PillarDetail
+
+

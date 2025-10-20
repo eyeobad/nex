@@ -1,6 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import image2 from "../assets/Graident Ai Robot.jpg"
+import image from "../assets/ai agent.jpg"
+
+
+
 
 if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger)
@@ -8,6 +13,8 @@ if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
 
 const AIConversion = ({ id }) => {
   const sectionRef = useRef(null)
+  const [chatbotLoaded, setChatbotLoaded] = useState(false)
+  const [voiceAgentLoaded, setVoiceAgentLoaded] = useState(false)
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -41,19 +48,24 @@ const AIConversion = ({ id }) => {
               AI-powered engagement that works while you sleep
             </h3>
             <p className="text-[15px] leading-relaxed text-white/70 sm:text-base md:text-[18px] md:leading-[26px]">
-              Our Nex Acceleration package integrates advanced AI tools to boost conversion rates and intelligently qualify leads 24/7.
+              Intelligent chat, forms, and voice agents join every engagement we launch, safely qualifying leads, booking meetings, and feeding
+              your CRM without adding extra headcount.
             </p>
           </div>
         </header>
 
         <div className="grid gap-8 lg:grid-cols-2">
           <article className="ai-card flex h-full flex-col gap-4 overflow-hidden rounded-[28px] border border-white/10 bg-[#111014] shadow-[0px_24px_70px_rgba(0,0,0,0.4)]">
-            <img
-              src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80"
-              alt="AI website chatbot interface"
-              className="h-64 w-full object-cover"
-              loading="lazy"
-            />
+            <div className="relative h-64 w-full overflow-hidden">
+              {!chatbotLoaded && <div className="image-skeleton absolute inset-0" aria-hidden="true" />}
+              <img
+                src={image}
+                alt="Operator monitoring an AI chatbot dashboard on a laptop"
+                className={`h-64 w-full object-cover transition-opacity duration-500 ${chatbotLoaded ? "opacity-100" : "opacity-0"}`}
+                loading="lazy"
+                onLoad={() => setChatbotLoaded(true)}
+              />
+            </div>
             <div className="flex flex-col gap-3 px-6 pb-8 sm:px-8">
               <h4 className="font-space-grotesk text-[22px] font-semibold text-white">AI Website Chatbot</h4>
               <p className="text-[15px] leading-relaxed text-white/70 sm:text-base">
@@ -63,12 +75,16 @@ const AIConversion = ({ id }) => {
           </article>
 
           <article className="ai-card flex h-full flex-col gap-4 overflow-hidden rounded-[28px] border border-white/10 bg-[#111014] shadow-[0px_24px_70px_rgba(0,0,0,0.4)]">
-            <img
-              src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=1200&q=80"
-              alt="AI voice agent call"
-              className="h-64 w-full object-cover"
-              loading="lazy"
-            />
+            <div className="relative h-64 w-full overflow-hidden">
+              {!voiceAgentLoaded && <div className="image-skeleton absolute inset-0" aria-hidden="true" />}
+              <img
+                src={image2}
+                alt="Specialist wearing a headset while supervising automated voice calls"
+                className={`h-64 w-full object-cover transition-opacity duration-500 ${voiceAgentLoaded ? "opacity-100" : "opacity-0"}`}
+                loading="lazy"
+                onLoad={() => setVoiceAgentLoaded(true)}
+              />
+            </div>
             <div className="flex flex-col gap-3 px-6 pb-8 sm:px-8">
               <h4 className="font-space-grotesk text-[22px] font-semibold text-white">AI Voice Agent</h4>
               <p className="text-[15px] leading-relaxed text-white/70 sm:text-base">
@@ -83,3 +99,4 @@ const AIConversion = ({ id }) => {
 }
 
 export default AIConversion
+

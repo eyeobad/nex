@@ -11,23 +11,23 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "We have been working with .nex for the past year and have seen a significant rise in qualified pipeline. The team is proactive, transparent, and fully aligned with our revenue goals.",
-    name: "John Smith",
-    title: "Marketing Director · XYZ Corp",
+      "Within six months Nex rebuilt our positioning, shipped a smarter website, and tightened our automation. Marketing sourced pipeline is up 146 percent and sales close time has dropped noticeably.",
+    name: "Adaobi Onyekachi",
+    title: "Chief Marketing Officer, Vantage Capital",
   },
   {
     id: 2,
     quote:
-      "Their sprint model helped us launch multi-channel campaigns twice as fast. Reporting is crisp, experimentation is disciplined, and the creative keeps compounding.",
-    name: "Laura Chen",
-    title: "VP Growth · Brightwave",
+      "The sprint model means we launch campaigns twice as fast as before. Reporting is crisp, experiments are disciplined, and leadership finally sees how spend connects to revenue.",
+    name: "Tomiwa Ajayi",
+    title: "VP Growth, Paylyst",
   },
   {
     id: 3,
     quote:
-      "From lifecycle automation to paid media, every lever improved within a quarter. .nex feels like the growth crew we wished we had in-house.",
-    name: "Ahmed Hassan",
-    title: "Founder · Seedloop",
+      "Nex embedded with our in-house team, automated lead handling, and brought structure to content and SEO. Pipeline forecasts are accurate and we are expanding to two new regions with confidence.",
+    name: "Hassan Abdullahi",
+    title: "Founder, Seedloop",
   },
 ]
 
@@ -77,7 +77,7 @@ const Testimonials = ({ id }) => {
             </h2>
           </div>
           <p className="max-w-xl text-[13px] leading-relaxed text-white/65 sm:text-[15px]">
-            Hear how marketing leaders partner with .nex to launch smarter, scale faster, and prove impact sooner.
+            Hear how marketing leaders partner with Nex Digital Agency to launch smarter, scale faster, and prove impact sooner.
           </p>
         </header>
 
@@ -104,7 +104,7 @@ const Testimonials = ({ id }) => {
                       } bg-gradient-to-br from-[#16171d] via-[#0f1014] to-[#0a0b11] px-6 py-10 text-left shadow-[0px_25px_60px_rgba(0,0,0,0.5)] sm:px-10 sm:py-12 lg:px-14`}
                     >
                       <p className="text-[15px] leading-relaxed text-white/85 sm:text-[18px] sm:leading-[28px]">
-                        “{testimonial.quote}”
+                        "{testimonial.quote}"
                       </p>
                       <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                       <div className="mt-6 space-y-1">
@@ -173,3 +173,5 @@ const Testimonials = ({ id }) => {
 }
 
 export default Testimonials
+
+
