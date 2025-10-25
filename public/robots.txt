@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nexdigital.name.ng/sitemap.xml
+Host: nexdigital.name.ng

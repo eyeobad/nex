@@ -3,6 +3,12 @@ import { gsap } from "gsap"
 import { Link } from "react-router-dom"
 import { ChevronDown } from "lucide-react"
 import LogoMark from "../assets/logo.png"
+import { blogPages } from "../data/blogPosts"
+
+const blogSubmenuLinks = blogPages.map((page) => ({
+  label: `Page ${page.page} — ${page.label}`,
+  href: page.href,
+}))
 
 const primaryLinks = [
   {
@@ -19,7 +25,7 @@ const primaryLinks = [
   },
   { label: "About us", href: "/about" },
   { label: "Use Cases", href: "/process" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog", href: "/blog", submenu: blogSubmenuLinks },
 ]
 
 const FunMenuIcon = ({ className = "" }) => (

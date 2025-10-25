@@ -27,7 +27,7 @@ const PrivacyPolicy = () => (
             How we protect your data and honour your trust
           </h1>
           <p className="text-[16px] leading-relaxed text-white/70 sm:text-[18px]">
-            Nex Digital Agency ("we", "our", or "us") builds growth systems for clients worldwide. This privacy policy explains how we collect,
+            Nex Digital Agency builds growth systems for clients worldwide. This privacy policy explains how we collect,
             use, and safeguard personal information obtained through our website, campaigns, and client engagements.
           </p>
         </header>
@@ -54,7 +54,7 @@ const PrivacyPolicy = () => (
             <ul className="ml-5 list-disc space-y-2">
               <li>Deliver contracted services including strategy, creative, analytics, and automation support.</li>
               <li>Respond to enquiries, schedule consultations, and provide customer service.</li>
-              <li>Improve our website experience and measure the effectiveness of marketing activities.</li>
+              <li>Improving website experience and measure the effectiveness of marketing activities.</li>
               <li>Comply with legal obligations, prevent fraud, and enforce our agreements.</li>
             </ul>
             <p>We never sell personal data or use it for purposes unrelated to the services you request.</p>
@@ -89,8 +89,8 @@ const PrivacyPolicy = () => (
             </ul>
             <p>
               To exercise these rights, contact us at{" "}
-              <a href="mailto:privacy@nexdigital.name.ng" className="underline">
-                privacy@nexdigital.name.ng
+              <a href="mailto:info@nexdigital.name.ng" className="underline">
+                info@nexdigital.name.ng
               </a>
               .
             </p>
