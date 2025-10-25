@@ -13,10 +13,23 @@
     @apply bg-black text-white antialiased;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif;
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  main {
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -146,6 +159,18 @@ section {
 @media (max-width:640px) {
   .marquee-track { animation-duration: 34s; }
   .marquee-group { gap: 1.2rem; }
+}
+
+@media (max-width:480px) {
+  .marquee-container {
+    padding: 0.24rem 0.85rem;
+  }
+
+  .marquee-pill {
+    font-size: .64rem;
+    letter-spacing: .12em;
+    padding: .22rem .58rem;
+  }
 }
 
 /* Reduced motion */

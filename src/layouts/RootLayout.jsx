@@ -7,10 +7,10 @@ import TopMarquee from "../Components/TopMarquee"
 
 const RootLayout = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-black text-white">
       <TopMarquee />
       <Navbar />
-      <main>
+      <main className="flex-1">
         <Outlet />
       </main>
       <PackagesLauncher />
