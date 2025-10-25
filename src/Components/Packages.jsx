@@ -115,7 +115,7 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
     <section
       id={id}
       ref={sectionRef}
-      className="relative bg-black py-16 text-white sm:py-20 md:py-24 overflow-x-clip"
+      className="relative overflow-hidden bg-black py-16 text-white sm:py-20 md:py-24"
       style={{ contain: "paint" }}
     >
       {/* fixed Close button; never moves */}
@@ -126,19 +126,9 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
           onClick={onClose}
           className="fixed right-3 top-12 z-50 h-9 w-9 rounded-full border border-white/10 bg-white/10 backdrop-blur-md text-white/80 hover:text-white hover:border-white/30 transition"
         >
-          ✕
+          X
         </button>
       )}
-
-      <style>{`
-        .focus-ring{outline:none}
-        .focus-ring:focus-visible{box-shadow:0 0 0 3px rgba(216,31,38,0.5)}
-        /* FORCE TRUE CENTER ON MOBILE */
-        @media (max-width: 767px){
-          .packages-grid{ place-items: center; }        /* centers both axes */
-          .package-card{ width: min(560px, 100%); }
-        }
-      `}</style>
 
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[100px]">
         <header className="flex flex-col gap-3 sm:gap-4">
@@ -155,13 +145,13 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
           </div>
         </header>
 
-        {/* Mobile: 1-up centered. Desktop: 2/3 columns */}
-        <div className="packages-grid mt-8 grid grid-cols-1 gap-6 sm:gap-7 md:mt-12 md:grid-cols-2 xl:grid-cols-3">
+        {/* Mobile: horizontal snap carousel. Desktop: 2/3 columns */}
+        <div className="packages-grid mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-6 md:mt-12 md:grid md:grid-cols-2 md:gap-7 md:overflow-visible md:pb-0 md:snap-none xl:grid-cols-3">
           {packagesData.map((pkg) => (
             <article
               key={pkg.name}
               className={[
-                "package-card group relative flex w-full flex-col gap-5 md:gap-6 rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#101013] p-6 md:px-7 md:py-8 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition-[border,transform,box-shadow] duration-300 ease-out hover:border-[#D81F26] focus-ring",
+                "package-card group relative flex min-w-[280px] max-w-[340px] snap-center flex-col gap-5 rounded-[22px] border border-white/10 bg-[#101013] p-6 shadow-[0px_24px_60px_rgba(0,0,0,0.38)] transition-[border,transform,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D81F26]/60 hover:border-[#D81F26] md:min-w-0 md:max-w-none md:gap-6 md:rounded-[28px] md:border-white/12 md:px-7 md:py-8",
                 isFeatured(pkg.name) ? "is-featured" : "",
               ].join(" ")}
               tabIndex={0}
@@ -170,16 +160,6 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
               onKeyDown={(e) => (e.key === "Enter" ? handleSelect(pkg) : null)}
               style={{ willChange: "transform" }}
             >
-              {/* Your existing CTA – leave className for pulse */}
-              <button
-                type="button"
-                aria-label={`Get offer for ${pkg.name}`}
-                onClick={() => handleSelect(pkg)}
-                className="get-offer focus-ring absolute right-3 top-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.18em] text-white/80 hover:text-white hover:border-[#D81F26] hover:bg-[#D81F26]/20 transition"
-              >
-                GET OFFER
-              </button>
-
               <div className="flex flex-col gap-2 md:gap-3">
                 <h4 className="font-space-grotesk text-[20px] md:text-[22px] font-semibold text-white">{pkg.name}</h4>
                 <p className="text-[13px] md:text-[15px] font-medium text-white/70">{pkg.headline}</p>
@@ -194,6 +174,20 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
                   </li>
                 ))}
               </ul>
+
+              <div className="flex flex-col gap-1 rounded-[18px] border border-white/5 bg-white/[0.03] px-4 py-3 text-[11px] uppercase tracking-[0.24em] text-white/60 sm:flex-row sm:items-center sm:justify-between sm:text-xs">
+                <span>Setup {pkg.pricing.setup}</span>
+                <span>Retainer {pkg.pricing.monthly}</span>
+              </div>
+
+              <button
+                type="button"
+                aria-label={`Get offer for ${pkg.name}`}
+                onClick={() => handleSelect(pkg)}
+                className="get-offer mt-4 inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/80 transition duration-200 hover:border-[#D81F26] hover:bg-[#D81F26]/20 hover:text-white md:w-auto md:self-end md:px-5 md:py-2.5"
+              >
+                GET OFFER
+              </button>
             </article>
           ))}
         </div>
