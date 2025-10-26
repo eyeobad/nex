@@ -374,7 +374,7 @@ export const DigitalMarketingEcommerceArticle = () => (
 
 const DigitalMarketingEcommerce = () => (
   <>
-    <SEO canonical="https://nexdigital.name.ng/blog/digital-marketing-for-ecommerce-businesses" />
+    <SEO canonical="https://nexdigitals.agency/blog/digital-marketing-for-ecommerce-businesses" />
     <DigitalMarketingEcommerceArticle />
     <Quote id="quote" />
   </>

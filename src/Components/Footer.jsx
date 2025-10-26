@@ -89,7 +89,7 @@ const Footer = ({ id }) => {
                 Contact us:
               </span>
               <div className="flex flex-col gap-4 text-[16px] sm:text-[18px]">
-                <p>Email: info@nexdigital.name.ng</p>
+                <p>Email: info@nexdigitals.agency</p>
                 <p>Phone: 09038357956</p>
                 
               </div>

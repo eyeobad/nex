@@ -1,7 +1,7 @@
 import { writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 
-const siteUrl = "https://nexdigital.name.ng"
+const siteUrl = "https://nexdigitals.agency"
 
 const today = new Date().toISOString().split("T")[0]
 

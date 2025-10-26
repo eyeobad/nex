@@ -240,13 +240,13 @@ const ServicesPage = () => (
     <SEO
       title="Digital Marketing Services | Nex Digital Agency"
       description="Explore Nex Digital Agency's full-funnel services - branding, smart websites, SEO, paid acquisition, automation, and analytics engineered for growth-focused teams."
-      canonical="https://nexdigital.name.ng/services"
+      canonical="https://nexdigitals.agency/services"
       openGraph={{
         title: "Digital Marketing Services | Nex Digital Agency",
         description:
           "Partner with Nex to orchestrate branding, websites, SEO, paid media, automation, and analytics around measurable revenue outcomes.",
-        url: "https://nexdigital.name.ng/services",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/services",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -255,7 +255,7 @@ const ServicesPage = () => (
         title: "Digital Marketing Services Built to Scale",
         description:
           "See how Nex Digital Agency integrates strategy, execution, and automation into one growth programme for ambitious brands.",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        image: "https://nexdigitals.agency/nex.jpg",
       }}
     />
     <section className="bg-black py-24 text-white">

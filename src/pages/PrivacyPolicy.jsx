@@ -6,13 +6,13 @@ const PrivacyPolicy = () => (
     <SEO
       title="Privacy Policy | Nex Digital Agency"
       description="Understand how Nex Digital Agency collects, uses, and protects personal information across our marketing, automation, and analytics services."
-      canonical="https://nexdigital.name.ng/privacy"
+      canonical="https://nexdigitals.agency/privacy"
       openGraph={{
         title: "Privacy Policy | Nex Digital Agency",
         description:
           "Learn how Nex Digital Agency handles personal data, cookies, and compliance while delivering growth programmes.",
-        url: "https://nexdigital.name.ng/privacy",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/privacy",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -89,8 +89,8 @@ const PrivacyPolicy = () => (
             </ul>
             <p>
               To exercise these rights, contact us at{" "}
-              <a href="mailto:info@nexdigital.name.ng" className="underline">
-                info@nexdigital.name.ng
+              <a href="mailto:info@nexdigitals.agency" className="underline">
+                info@nexdigitals.agency
               </a>
               .
             </p>

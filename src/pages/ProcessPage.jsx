@@ -9,13 +9,13 @@ const ProcessPage = () => (
     <SEO
       title="Our Growth Process | Nex Digital Agency"
       description="Discover the collaborative process Nex Digital Agency uses to diagnose, build, and optimise revenue programmes for fast-growing brands."
-      canonical="https://nexdigital.name.ng/process"
+      canonical="https://nexdigitals.agency/process"
       openGraph={{
         title: "Our Growth Process | Nex Digital Agency",
         description:
           "See how Nex maps diagnostics to sprints, ships improvements quickly, and measures impact across every stage of the growth engine.",
-        url: "https://nexdigital.name.ng/process",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/process",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -24,7 +24,7 @@ const ProcessPage = () => (
         title: "How Nex Digital Agency Delivers Growth",
         description:
           "From discovery to optimisation, our process keeps teams aligned on pipeline, retention, and efficiency outcomes.",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        image: "https://nexdigitals.agency/nex.jpg",
       }}
     />
     <section className="bg-black py-24 text-white">

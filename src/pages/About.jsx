@@ -10,13 +10,13 @@ const About = () => (
     <SEO
       title="About Nex Digital Agency | Integrated Growth Partner"
       description="Meet Nex Digital Agency, the growth team blending brand strategy, AI-powered marketing, and automation to deliver compounding revenue results for ambitious companies."
-      canonical="https://nexdigital.name.ng/about"
+      canonical="https://nexdigitals.agency/about"
       openGraph={{
         title: "About Nex Digital Agency | Integrated Growth Partner",
         description:
           "Discover the strategists, technologists, and storytellers helping modern brands convert intent into revenue through automation-first marketing.",
-        url: "https://nexdigital.name.ng/about",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/about",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -25,14 +25,14 @@ const About = () => (
         title: "About Nex Digital Agency",
         description:
           "We combine brand, performance, automation, and analytics into one growth engine built for scale.",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        image: "https://nexdigitals.agency/nex.jpg",
       }}
       schema={{
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "Nex Digital Agency",
-        url: "https://nexdigital.name.ng",
-        logo: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency",
+        logo: "https://nexdigitals.agency/nex.jpg",
         sameAs: ["https://www.tiktok.com/@nexxtdigitalagency"],
       }}
     />

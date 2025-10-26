@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nexdigital.name.ng/sitemap.xml
-Host: nexdigital.name.ng
+Sitemap: https://nexdigitals.agency/sitemap.xml
+Host: nexdigitals.agency

@@ -6,7 +6,7 @@ const NotFound = () => {
   const title = "Page Not Found | Nex Digital Agency"
   const description =
     "Looks like the page you were searching for has moved. Explore our services, blog insights, or reach out and we will guide you."
-  const canonical = "https://nexdigital.name.ng/404"
+  const canonical = "https://nexdigitals.agency/404"
 
   return (
     <>
@@ -19,7 +19,7 @@ const NotFound = () => {
           title,
           description,
           url: canonical,
-          image: "https://nexdigital.name.ng/nex.jpg",
+          image: "https://nexdigitals.agency/nex.jpg",
           siteName: "Nex Digital Agency",
           locale: "en",
         }}
@@ -27,7 +27,7 @@ const NotFound = () => {
           card: "summary_large_image",
           title,
           description,
-          image: "https://nexdigital.name.ng/nex.jpg",
+          image: "https://nexdigitals.agency/nex.jpg",
         }}
       />
 

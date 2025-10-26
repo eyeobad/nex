@@ -1,9 +1,9 @@
 import React from "react";
 
 const marqueeItems = [
-  { value: "info@nexdigital.name.ng", href: "mailto:info@nexdigital.name.ng" },
+  { value: "info@nexdigitals.agency", href: "mailto:info@nexdigitals.agency" },
   { value: "+234 903 835 7956", href: "https://wa.me/2349038357956" },
-  { value: "info@nexdigital.name.ng", href: "mailto:info@nexdigital.name.ng" },
+  { value: "info@nexdigitals.agency", href: "mailto:info@nexdigitals.agency" },
   { value: "+234 903 835 7956", href: "https://wa.me/2349038357956" },
 ];
 

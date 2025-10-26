@@ -209,7 +209,7 @@ const ServiceDetail = () => {
   const metaTitle = content.metaTitle || `${content.title} | Nex Digital Agency`
   const metaDescription = content.metaDescription || content.description
   const canonicalPath = content.canonicalPath || (slug ? `/services/${slug}` : "/services")
-  const canonicalUrl = `https://nexdigital.name.ng${canonicalPath}`
+  const canonicalUrl = `https://nexdigitals.agency${canonicalPath}`
   const schema = [
     {
       "@context": "https://schema.org",
@@ -220,7 +220,7 @@ const ServiceDetail = () => {
       provider: {
         "@type": "Organization",
         name: "Nex Digital Agency",
-        url: "https://nexdigital.name.ng",
+          url: "https://nexdigitals.agency",
       },
       areaServed: {
         "@type": "Place",
@@ -239,7 +239,7 @@ const ServiceDetail = () => {
           title: metaTitle,
           description: metaDescription,
           url: canonicalUrl,
-          image: "https://nexdigital.name.ng/nex.jpg",
+          image: "https://nexdigitals.agency/nex.jpg",
           siteName: "Nex Digital Agency",
           locale: "en",
         }}
@@ -247,7 +247,7 @@ const ServiceDetail = () => {
           card: "summary_large_image",
           title: metaTitle,
           description: metaDescription,
-          image: "https://nexdigital.name.ng/nex.jpg",
+          image: "https://nexdigitals.agency/nex.jpg",
         }}
         schema={schema}
       />

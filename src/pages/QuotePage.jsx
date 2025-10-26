@@ -8,12 +8,12 @@ const QuotePage = () => (
     <SEO
       title="Request a Quote | Nex Digital Agency"
       description="Share your goals and receive a tailored proposal from Nex Digital Agency including timelines, investment ranges, and quick-win recommendations."
-      canonical="https://nexdigital.name.ng/quote"
+      canonical="https://nexdigitals.agency/quote"
       openGraph={{
         title: "Request a Quote | Nex Digital Agency",
         description: "Get a bespoke roadmap covering branding, websites, SEO, paid media, automation, and analytics support.",
-        url: "https://nexdigital.name.ng/quote",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/quote",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -21,7 +21,7 @@ const QuotePage = () => (
         card: "summary_large_image",
         title: "Start Your Project with Nex Digital Agency",
         description: "Tell us about your objectives and we will outline the growth sprints, team, and investment required.",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        image: "https://nexdigitals.agency/nex.jpg",
       }}
     />
     <section className="bg-black py-20 text-white">

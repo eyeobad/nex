@@ -34,13 +34,13 @@ const BlogPage = () => {
       <SEO
         title="Insights & Playbooks | Nex Digital Agency Blog"
         description="Read Nex Digital Agency's latest insights on branding, automation, SEO, paid media, and analytics tailored for growth teams."
-        canonical="https://nexdigital.name.ng/blog"
+      canonical="https://nexdigitals.agency/blog"
         openGraph={{
           title: "Insights & Playbooks | Nex Digital Agency Blog",
           description:
             "Actionable guides on building brand preference, deploying automation, scaling paid media, and measuring marketing ROI.",
-          url: "https://nexdigital.name.ng/blog",
-          image: "https://nexdigital.name.ng/nex.jpg",
+          url: "https://nexdigitals.agency/blog",
+          image: "https://nexdigitals.agency/nex.jpg",
           siteName: "Nex Digital Agency",
           locale: "en",
         }}
@@ -49,7 +49,7 @@ const BlogPage = () => {
           title: "Nex Digital Agency Blog",
           description:
             "Growth playbooks covering brand, SEO, paid media, automation, and analytics for ambitious businesses.",
-          image: "https://nexdigital.name.ng/nex.jpg",
+          image: "https://nexdigitals.agency/nex.jpg",
         }}
       />
 
@@ -129,4 +129,3 @@ const BlogPage = () => {
 }
 
 export default BlogPage
-

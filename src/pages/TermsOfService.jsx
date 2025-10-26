@@ -6,13 +6,13 @@ const TermsOfService = () => (
     <SEO
       title="Terms of Service | Nex Digital Agency"
       description="Review the engagement terms, responsibilities, and acceptable use guidelines that govern Nex Digital Agency's services."
-      canonical="https://nexdigital.name.ng/terms"
+      canonical="https://nexdigitals.agency/terms"
       openGraph={{
         title: "Terms of Service | Nex Digital Agency",
         description:
           "Understand how Nex Digital Agency delivers projects, manages billing, and handles intellectual property across every engagement.",
-        url: "https://nexdigital.name.ng/terms",
-        image: "https://nexdigital.name.ng/nex.jpg",
+        url: "https://nexdigitals.agency/terms",
+        image: "https://nexdigitals.agency/nex.jpg",
         siteName: "Nex Digital Agency",
         locale: "en",
       }}
@@ -114,4 +114,3 @@ const TermsOfService = () => (
 )
 
 export default TermsOfService
-
