@@ -47,30 +47,26 @@ const FunMenuIcon = ({ className = "" }) => (
 const FunCloseIcon = ({ className = "" }) => (
   <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="closeGradient" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <linearGradient id="closeGradient" x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
         <stop stopColor="#FD853A" />
         <stop offset="1" stopColor="#D81F26" />
       </linearGradient>
     </defs>
-    <rect
-      x="10"
-      y="22"
-      width="28"
-      height="4"
-      rx="2"
-      transform="rotate(45 10 22)"
-      fill="url(#closeGradient)"
+    <circle cx="24" cy="24" r="21" stroke="url(#closeGradient)" strokeWidth="2" opacity="0.3" />
+    <path
+      d="M16 16L32 32"
+      stroke="url(#closeGradient)"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
-    <rect
-      x="13"
-      y="32"
-      width="28"
-      height="4"
-      rx="2"
-      transform="rotate(-45 13 32)"
-      fill="url(#closeGradient)"
+    <path
+      d="M32 16L16 32"
+      stroke="url(#closeGradient)"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
-    <circle cx="24" cy="24" r="20" stroke="url(#closeGradient)" strokeWidth="2" opacity="0.35" />
   </svg>
 )
 
