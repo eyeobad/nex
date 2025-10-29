@@ -53,16 +53,16 @@ const PackagesLauncher = () => {
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-[min(1180px,94vw)] max-h-[85vh] overflow-auto rounded-[32px] border border-white/12 bg-black/90 text-white shadow-[0px_50px_140px_rgba(0,0,0,0.65)]">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="absolute right-6 top-6 rounded-full border border-white/20 p-2 text-white/70 transition hover:text-white"
-              aria-label="Close packages preview"
-            >
-              <X className="h-5 w-5" strokeWidth={2.2} />
-            </button>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="absolute right-6 top-6 z-50 rounded-full border border-white/20 bg-black/70 p-2 text-white/80 transition hover:text-white hover:border-white/40"
+            aria-label="Close packages preview"
+          >
+            <X className="h-5 w-5" strokeWidth={2.2} />
+          </button>
 
+          <div className="relative w-[min(1180px,94vw)] max-h-[85vh] overflow-auto rounded-[32px] border border-white/12 bg-black/90 text-white shadow-[0px_50px_140px_rgba(0,0,0,0.65)]">
             <div className="px-8 pb-8 pt-12">
               <div className="grid gap-6 md:grid-cols-3">
                 {packagesData.map((pkg, index) => {

@@ -28,27 +28,28 @@ export default function Contact({ id = "contact" }) {
 
         <div className="mx-auto w-full max-w-[980px] rounded-[22px] border border-white/10 bg-[#0D0F13] p-4 sm:p-6 lg:p-8">
           <iframe
-            id="inline-Uhjp7AK4SKzv2zwjp7KY"
-            title="Talk to Nex Digital Agency"
-            src="https://api.leadconnectorhq.com/widget/form/Uhjp7AK4SKzv2zwjp7KY?notrack=true"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-activation-type="alwaysActivated"
-            data-deactivation-type="neverDeactivate"
-            data-form-name="Talk to Nex Digital Agency"
-            data-height="637"
-            data-layout-iframe-id="inline-Uhjp7AK4SKzv2zwjp7KY"
-            data-form-id="Uhjp7AK4SKzv2zwjp7KY"
-            scrolling="no"
-            loading="lazy"
+            src="https://api.leadconnectorhq.com/widget/form/0tC0xYMeShCbQevMFse2"
             style={{
               width: "100%",
-              display: "block",
+              height: "100%",
               border: "none",
-              borderRadius: "6px",
-              height: "1px",
-              minHeight: "clamp(700px, 95vh, 1500px)",
+              borderRadius: "5px",
+              minHeight: "690px",
             }}
+            id="inline-0tC0xYMeShCbQevMFse2"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Contact Form"
+            data-height="690"
+            data-layout-iframe-id="inline-0tC0xYMeShCbQevMFse2"
+            data-form-id="0tC0xYMeShCbQevMFse2"
+            title="Contact Form"
+            loading="lazy"
           />
         </div>
       </div>

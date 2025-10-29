@@ -120,14 +120,16 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
     >
       {/* fixed Close button; never moves */}
       {showClose && (
-        <button
-          type="button"
-          aria-label="Close"
-          onClick={onClose}
-          className="fixed right-3 top-12 z-50 h-9 w-9 rounded-full border border-white/10 bg-white/10 backdrop-blur-md text-white/80 hover:text-white hover:border-white/30 transition"
-        >
-          ✕
-        </button>
+        <div className="pointer-events-none fixed inset-x-0 top-8 z-[60] flex justify-end px-4">
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={onClose}
+            className="pointer-events-auto h-10 w-10 rounded-full border border-white/12 bg-white/10 backdrop-blur-md text-white/80 transition hover:border-white/30 hover:text-white"
+          >
+            ✕
+          </button>
+        </div>
       )}
 
       <style>{`
