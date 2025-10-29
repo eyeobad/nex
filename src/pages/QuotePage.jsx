@@ -39,7 +39,7 @@ const QuotePage = () => (
       </div>
     </section>
     <Quote id="quote" />
-    <Contact id="contact" />
+    <Contact id="contact" showCalculator={false} />
   </>
 )
 

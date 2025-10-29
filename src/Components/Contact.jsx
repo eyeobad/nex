@@ -1,10 +1,11 @@
 // Contact.jsx
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import PresenceCalculator from "./PresenceCalculator"
 import { packagesData } from "./Packages"
 
-export default function Contact({ id = "contact" }) {
-  const [recommended, setRecommended] = useState(packagesData[0])
+export default function Contact({ id = "contact", showCalculator = true }) {
+  const initialRecommendation = useMemo(() => (showCalculator ? packagesData[0] : null), [showCalculator])
+  const [recommended, setRecommended] = useState(initialRecommendation)
 
   useEffect(() => {
     const src = "https://link.msgsndr.com/js/form_embed.js"
@@ -15,6 +16,10 @@ export default function Contact({ id = "contact" }) {
       document.body.appendChild(s)
     }
   }, [])
+
+  useEffect(() => {
+    setRecommended(showCalculator ? packagesData[0] : null)
+  }, [showCalculator])
 
   return (
     <section id={id} className="relative overflow-hidden bg-black py-20 text-white sm:py-24">
@@ -36,25 +41,34 @@ export default function Contact({ id = "contact" }) {
           </p>
         </header>
 
-        <div className="mx-auto grid w-full max-w-[1180px] gap-8 sm:gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,520px)] lg:items-start">
-          <div className="order-2 flex flex-col gap-6 lg:order-1">
-            <div className="space-y-3 text-left">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#D81F26]/80 sm:text-sm">Try the growth pulse</p>
-              <h3 className="font-space-grotesk text-[24px] font-semibold text-white sm:text-[28px] md:text-[32px]">
-                Get your online presence score
-              </h3>
-              <p className="text-[13px] leading-relaxed text-white/70 sm:text-[14px] md:text-[16px]">
-                Slide each lever to match your current momentum. Your strategist receives the score alongside your form submission so we can prep a tailored roadmap.
-              </p>
-            </div>
+        <div
+          className={[
+            "mx-auto grid w-full max-w-[1180px] gap-8 sm:gap-10 lg:gap-12",
+            showCalculator ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,520px)] lg:items-start" : "lg:max-w-[620px]",
+          ].join(" ")}
+        >
+          {showCalculator && (
+            <div className="order-2 flex flex-col gap-6 lg:order-1">
+              <div className="space-y-3 text-left">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#D81F26]/80 sm:text-sm">Try the growth pulse</p>
+                <h3 className="font-space-grotesk text-[24px] font-semibold text-white sm:text-[28px] md:text-[32px]">
+                  Get your online presence score
+                </h3>
+                <p className="text-[13px] leading-relaxed text-white/70 sm:text-[14px] md:text-[16px]">
+                  Slide each lever to match your current momentum. Your strategist receives the score alongside your form submission so we can prep a tailored roadmap.
+                </p>
+              </div>
 
-            <PresenceCalculator onRecommendationChange={setRecommended} />
-          </div>
-
-          <div className="order-1 flex flex-col gap-4 lg:order-2">
-            <div className="w-full rounded-[18px] border border-white/12 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70 sm:text-xs lg:text-[11px]">
-              Recommended package <span className="ml-3 rounded-full bg-[#D81F26]/20 px-3 py-1 text-white/90">{recommended.name}</span>
+              <PresenceCalculator onRecommendationChange={setRecommended} />
             </div>
+          )}
+
+          <div className={`order-1 flex flex-col gap-4 ${showCalculator ? "lg:order-2" : "lg:mx-auto lg:max-w-[520px]"}`}>
+            {showCalculator && recommended && (
+              <div className="w-full rounded-[18px] border border-white/12 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70 sm:text-xs lg:text-[11px]">
+                Recommended package <span className="ml-3 rounded-full bg-[#D81F26]/20 px-3 py-1 text-white/90">{recommended.name}</span>
+              </div>
+            )}
             <div className="overflow-hidden rounded-[24px] border border-white/12 bg-black/60 shadow-[0_24px_90px_rgba(0,0,0,0.45)] backdrop-blur-md">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/0tC0xYMeShCbQevMFse2?transparent=1"
@@ -77,9 +91,15 @@ export default function Contact({ id = "contact" }) {
                 loading="lazy"
               />
             </div>
-            <p className="text-center text-[11px] leading-relaxed text-white/45 sm:text-xs">
-              Mention your score in the message field so we can prioritise the right playbook.
-            </p>
+            {showCalculator ? (
+              <p className="text-center text-[11px] leading-relaxed text-white/45 sm:text-xs">
+                Mention your score in the message field so we can prioritise the right playbook.
+              </p>
+            ) : (
+              <p className="text-center text-[11px] leading-relaxed text-white/45 sm:text-xs">
+                Ready for a call? Leave a note with ideal times and we’ll confirm within one business day.
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React from "react"
 import Services from "../Components/Services"
 import Quote from "../Components/Quote"
 import Testimonials from "../Components/Testimonials"
-import Contact from "../Components/Contact"
 import AIConversion from "../Components/AIConversion"
 import GrowthPartner from "../Components/GrowthPartner"
 import SEO from "../Components/SEO"
@@ -288,7 +287,7 @@ const ServicesPage = () => (
             View service playbooks
           </a>
           <a
-            href="#contact"
+            href="/quote"
             className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold uppercase tracking-[0.26em] text-white transition hover:border-white/60"
           >
             Book a strategy call
@@ -443,7 +442,6 @@ const ServicesPage = () => (
     <GrowthPartner id="growth" />
     <Testimonials id="testimonials" />
     <Quote id="quote" />
-    <Contact id="contact" />
   </>
 )
 

@@ -1,7 +1,6 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import Quote from "../Components/Quote"
-import Contact from "../Components/Contact"
 import SEO from "../Components/SEO"
 
 const serviceContent = {
@@ -320,7 +319,6 @@ const ServiceDetail = () => {
       </section>
 
       <Quote id="quote" />
-      <Contact id="contact" />
     </>
   )
 }
