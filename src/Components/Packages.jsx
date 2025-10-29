@@ -70,7 +70,7 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
           cards.forEach((card) => {
             const tl = gsap.timeline({ paused: true })
             tl.to(card, {
-              y: -3, rotateX: 0.6, rotateY: 0.3,
+              y: -3, rotateX: 0.6,
               duration: 0.22, ease: "power2.out",
               transformPerspective: 800, transformOrigin: "center",
             })
@@ -161,7 +161,7 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
             <article
               key={pkg.name}
               className={[
-                "package-card group relative flex w-full flex-col gap-5 md:gap-6 rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#101013] p-6 md:px-7 md:py-8 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition-[border,transform,box-shadow] duration-300 ease-out hover:border-[#D81F26] focus-ring",
+                "package-card group relative flex flex-col gap-5 md:gap-6 rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#101013] p-6 md:px-7 md:py-8 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition-[border,transform,box-shadow] duration-300 ease-out hover:border-[#D81F26] focus-ring",
                 isFeatured(pkg.name) ? "is-featured" : "",
               ].join(" ")}
               tabIndex={0}
