@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found | Nex Digital Agency</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Space Grotesk", "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #050509;
+        color: #fcfcfd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem;
+      }
+      .card {
+        width: 100%;
+        max-width: 540px;
+        background: rgba(12, 14, 25, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        box-shadow: 0 30px 120px rgba(0, 0, 0, 0.45);
+        padding: 2.75rem 2.5rem;
+        text-align: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.45em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        padding: 0.75rem 1.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      h1 {
+        font-size: clamp(1.9rem, 4vw, 2.25rem);
+        margin: 0 0 1rem;
+        line-height: 1.2;
+      }
+      p {
+        margin: 0 0 2rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+      }
+      .actions {
+        display: grid;
+        gap: 0.9rem;
+        margin-bottom: 2.2rem;
+      }
+      .actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+      }
+      .actions a.primary {
+        background: #d81f26;
+        color: #050509;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .actions a.primary:hover {
+        transform: translateY(-1px);
+        background: #ff3a45;
+      }
+      .actions a.secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .actions a.secondary:hover {
+        border-color: #d81f26;
+        color: #fff;
+      }
+      .links {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.75rem;
+        display: grid;
+        gap: 0.75rem;
+        text-align: left;
+      }
+      .links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9rem 1rem;
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+      }
+      .links a span:last-child {
+        font-size: 0.7rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .links a:hover {
+        border-color: #d81f26;
+        color: #fff;
+      }
+      .links a:hover span:last-child {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      @media (min-width: 640px) {
+        .actions {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="badge">Status · 404</div>
+      <h1>We can’t find that page</h1>
+      <p>
+        The link you followed may be broken or the page may have been moved. Head back to the homepage, explore our services, or reach out and we’ll help you get where you need to go.
+      </p>
+      <div class="actions">
+        <a href="/" class="primary">Back to home</a>
+        <a href="/services" class="secondary">View services</a>
+      </div>
+      <div class="links">
+        <a href="/blog"><span>Visit the blog library</span><span>Explore</span></a>
+        <a href="/quote"><span>Request a proposal</span><span>Book time</span></a>
+        <a href="/contact"><span>Talk to the team</span><span>Connect</span></a>
+        <a href="/privacy"><span>Privacy policy</span><span>Review</span></a>
+      </div>
+    </main>
+  </body>
+</html>
