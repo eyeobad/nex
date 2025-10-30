@@ -31,17 +31,17 @@ const Footer = ({ id }) => {
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      gsap.from("[data-footer-anim]", {
-        autoAlpha: 0,
-        y: 28,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 82%",
+      gsap.fromTo(
+        "[data-footer-anim]",
+        { autoAlpha: 0, y: 28 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.12,
         },
-      })
+      )
     }, sectionRef)
 
     return () => ctx.revert()
