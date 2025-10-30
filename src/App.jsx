@@ -7,6 +7,7 @@ import ServicesPage from "./pages/ServicesPage"
 import ServiceDetail from "./pages/ServiceDetail"
 import ProcessPage from "./pages/ProcessPage"
 import QuotePage from "./pages/QuotePage"
+import FloridaGrowthContent from "./pages/FloridaGrowthContent"
 import BookingPage from "./pages/BookingPage"
 import BlogPage from "./pages/BlogPage"
 import DigitalMarketingEcommerce from "./pages/DigitalMarketingEcommerce"
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="process" element={<ProcessPage />} />
         <Route path="quote" element={<QuotePage />} />
         <Route path="booking" element={<BookingPage />} />
+        <Route path="florida-growth" element={<FloridaGrowthContent />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/digital-marketing-for-ecommerce-businesses" element={<DigitalMarketingEcommerce />} />
         <Route path="privacy" element={<PrivacyPolicy />} />
