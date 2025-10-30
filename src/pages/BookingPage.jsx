@@ -110,7 +110,7 @@ const BookingPage = () => {
               Secure your slot below – calendar automatically adjusts to your timezone
             </div>
             <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
+              src="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8?transparent=1"
               title="Schedule with Nex Digital"
               loading="lazy"
               style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "760px" }}
