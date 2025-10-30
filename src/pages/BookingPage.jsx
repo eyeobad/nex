@@ -75,31 +75,13 @@ const BookingPage = () => {
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[820px] flex-col gap-10 px-4 sm:px-6 lg:px-10 xl:px-[100px]">
-          <div className="flex flex-col gap-6 text-center sm:text-left" data-booking-anim>
+          <div className="flex flex-col items-center gap-4 text-center" data-booking-anim>
             <span className="inline-flex w-fit rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-[#D81F26]/80">
-              Book a session
+              Book an appointment
             </span>
-            <h1 className="font-space-grotesk text-[32px] font-semibold leading-[40px] sm:text-[38px] sm:leading-[46px] mx-auto sm:mx-0">
-              Choose a time to review your growth engine
+            <h1 className="font-space-grotesk text-[32px] font-semibold leading-[40px] sm:text-[38px] sm:leading-[46px]">
+              Pick a time that works best for you
             </h1>
-            <p className="text-[15px] leading-relaxed text-white/70 sm:text-base md:text-[17px] max-w-3xl mx-auto sm:mx-0">
-              Pick a slot that fits your schedule. We’ll audit your current funnel, surface quick wins, and map how Nex Digital can engineer
-              an AI-augmented system that compounds revenue.
-            </p>
-            <ul className="space-y-3 text-[14px] leading-relaxed text-white/65 sm:text-[15px] max-w-xl mx-auto sm:mx-0 text-left">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#D81F26]" />
-                <span>Strategy call with senior growth specialist (no sales pressure).</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#D81F26]" />
-                <span>Receive a tailored roadmap covering brand, web, SEO, automation, and analytics.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#D81F26]" />
-                <span>Expect a follow-up deck and project outline inside 48 hours.</span>
-              </li>
-            </ul>
           </div>
 
           <div
@@ -110,7 +92,7 @@ const BookingPage = () => {
               src="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8?transparent=1"
               title="Schedule with Nex Digital"
               loading="lazy"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "760px" }}
+              style={{ width: "100%", border: "none",backgroundColor:"black", overflow: "hidden", minHeight: "760px" }}
               scrolling="no"
               id="HarhKYTGPGECsb5jGWL8_1761813501662"
             />
