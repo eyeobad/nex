@@ -189,14 +189,12 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden items-center lg:flex">
-          <a
-            href="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/booking"
             className="rounded-full border border-white/20 bg-black/40 px-6 py-2 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(216,31,38,0.18)] transition duration-200 hover:border-[#D81F26] hover:bg-black/60 hover:text-white"
           >
             Request a quote
-          </a>
+          </Link>
         </div>
 
         <button
@@ -286,15 +284,13 @@ const Navbar = () => {
               )
             })}
           </div>
-          <a
-            href="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/booking"
             onClick={closeMenu}
             className="mobile-link mt-9 flex items-center justify-center gap-2 rounded-full border border-[#D81F26] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_18px_45px_rgba(216,31,38,0.25)] transition duration-200 hover:bg-[#D81F26]/30"
           >
             Get a quote
-          </a>
+          </Link>
         </div>
       </div>
     </header>

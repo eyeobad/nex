@@ -1,6 +1,7 @@
 ﻿// Hero.jsx (logos normalized + mobile-tight)
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 import Illustration from "../assets/Illustration.svg";
 import LogoMark from "../assets/logo.png";
 import HubSpotLogo from "../assets/Company logo (2).svg";
@@ -58,14 +59,12 @@ const Hero = ({ id }) => {
           </p>
 
           <div className="hero-cta mt-10 flex flex-wrap items-center gap-5">
-            <a
-              href="https://api.leadconnectorhq.com/widget/booking/HarhKYTGPGECsb5jGWL8"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/booking"
               className="rounded-full border border-white/25 bg-black/40 px-7 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(216,31,38,0.25)] transition duration-200 hover:border-[#D81F26] hover:bg-black/60 hover:text-white"
             >
               Book a consultation
-            </a>
+            </Link>
           </div>
 
           {/* Logos — normalized sizing */}

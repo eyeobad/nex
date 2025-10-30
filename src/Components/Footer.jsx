@@ -74,18 +74,21 @@ const Footer = ({ id }) => {
                 Nex Digital engineers automated growth systems that convert 24/7. We align marketing, sales, and retention around the same revenue KPIs.
               </p>
               <div className="flex items-center gap-3">
-                {socials.map(({ icon: IconComponent, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-1 hover:bg-white hover:text-black"
-                  >
-                    <IconComponent className="h-5 w-5" />
-                  </a>
-                ))}
+                {socials.map(({ icon, label, href }) => {
+                  const Icon = icon
+                  return (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-1 hover:bg-white hover:text-black"
+                    >
+                      <Icon className="h-5 w-5" />
+                    </a>
+                  )
+                })}
               </div>
             </div>
 

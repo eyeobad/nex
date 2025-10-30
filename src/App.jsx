@@ -7,6 +7,7 @@ import ServicesPage from "./pages/ServicesPage"
 import ServiceDetail from "./pages/ServiceDetail"
 import ProcessPage from "./pages/ProcessPage"
 import QuotePage from "./pages/QuotePage"
+import BookingPage from "./pages/BookingPage"
 import BlogPage from "./pages/BlogPage"
 import DigitalMarketingEcommerce from "./pages/DigitalMarketingEcommerce"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="services/:slug" element={<ServiceDetail />} />
         <Route path="process" element={<ProcessPage />} />
         <Route path="quote" element={<QuotePage />} />
+        <Route path="booking" element={<BookingPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/digital-marketing-for-ecommerce-businesses" element={<DigitalMarketingEcommerce />} />
         <Route path="privacy" element={<PrivacyPolicy />} />
