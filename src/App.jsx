@@ -14,6 +14,7 @@ import DigitalMarketingEcommerce from "./pages/DigitalMarketingEcommerce"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import TermsOfService from "./pages/TermsOfService"
 import NotFound from "./pages/NotFound"
+import EnrollPage from "./pages/EnrollPage"
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="blog/digital-marketing-for-ecommerce-businesses" element={<DigitalMarketingEcommerce />} />
         <Route path="privacy" element={<PrivacyPolicy />} />
         <Route path="terms" element={<TermsOfService />} />
+        <Route path="enroll" element={<EnrollPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

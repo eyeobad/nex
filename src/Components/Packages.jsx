@@ -1,10 +1,4 @@
-import React, { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import React from "react"
 
 export const packagesData = [
   { name: "Nex Foundation",
@@ -44,77 +38,12 @@ export const packagesData = [
 
 /** @param {{ id?: string, onPackageSelect?: (pkg:any)=>void, showClose?: boolean, onClose?: ()=>void }} props */
 const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose = () => {} }) => {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    if (!sectionRef.current) return
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-
-    const ctx = gsap.context(() => {
-      const cards = sectionRef.current.querySelectorAll(".package-card")
-      const featured = sectionRef.current.querySelector(".package-card.is-featured")
-      const ctas = sectionRef.current.querySelectorAll(".get-offer, [data-cta='offer']")
-
-      gsap.set(sectionRef.current, { overflowX: "clip" }) // belt-and-suspenders
-
-      if (!prefersReduced) {
-        // Scroll-in stagger
-        gsap.from(cards, {
-          autoAlpha: 0, y: 24, duration: 0.55, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        })
-
-        // Hover tilt ONLY for pointer devices (never on touch)
-        const mm = gsap.matchMedia()
-        mm.add("(hover: hover) and (pointer: fine)", () => {
-          cards.forEach((card) => {
-            const tl = gsap.timeline({ paused: true })
-            tl.to(card, {
-              y: -3, rotateX: 0.6,
-              duration: 0.22, ease: "power2.out",
-              transformPerspective: 800, transformOrigin: "center",
-            })
-            card.addEventListener("mouseenter", () => tl.play())
-            card.addEventListener("mouseleave", () => tl.reverse())
-          })
-        })
-
-        // Pulse existing GET OFFER buttons
-        ctas.forEach((btn) => {
-          gsap.to(btn, {
-            scale: 1.06,
-            filter: "drop-shadow(0 0 8px rgba(216,31,38,0.35))",
-            repeat: -1, yoyo: true, ease: "sine.inOut", duration: 1.15,
-          })
-        })
-
-        // Spotlight middle card
-        if (featured) {
-          gsap.set(featured, { zIndex: 1 })
-          gsap.timeline({ repeat: -1, yoyo: true }).to(featured, {
-            boxShadow: "0px 0px 0px 1px rgba(216,31,38,0.28), 0px 24px 70px rgba(216,31,38,0.18)",
-            duration: 1.6, ease: "sine.inOut",
-          })
-          gsap.to(featured, {
-            scale: 1.02, duration: 0.45, ease: "power2.out",
-            scrollTrigger: { trigger: featured, start: "top 85%", once: true },
-          })
-        }
-
-        requestAnimationFrame(() => ScrollTrigger.refresh())
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   const isFeatured = (name) => name === packagesData[1].name
   const handleSelect = (pkg) => onPackageSelect(pkg)
 
   return (
     <section
       id={id}
-      ref={sectionRef}
       className="relative bg-black py-16 text-white sm:py-20 md:py-24 overflow-x-clip"
       style={{ contain: "paint" }}
     >
@@ -163,7 +92,7 @@ const Packages = ({ id, onPackageSelect = () => {}, showClose = false, onClose =
             <article
               key={pkg.name}
               className={[
-                "package-card group relative flex flex-col gap-5 md:gap-6 rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#101013] p-6 md:px-7 md:py-8 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition-[border,transform,box-shadow] duration-300 ease-out hover:border-[#D81F26] focus-ring",
+                "package-card group relative mx-auto flex w-full max-w-xl flex-col gap-5 rounded-[24px] border border-white/10 bg-[#101013] p-6 shadow-[0px_24px_70px_rgba(0,0,0,0.4)] transition-[border,transform,box-shadow] duration-300 ease-out hover:border-[#D81F26] focus-ring md:mx-0 md:max-w-none md:gap-6 md:rounded-[28px] md:px-7 md:py-8",
                 isFeatured(pkg.name) ? "is-featured" : "",
               ].join(" ")}
               tabIndex={0}
