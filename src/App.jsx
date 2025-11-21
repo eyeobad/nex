@@ -12,6 +12,7 @@ import BookingPage from "./pages/BookingPage"
 import BlogPage from "./pages/BlogPage"
 import DigitalMarketingEcommerce from "./pages/DigitalMarketingEcommerce"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
+import ProjectsPage from "./pages/ProjectsPage"
 import TermsOfService from "./pages/TermsOfService"
 import NotFound from "./pages/NotFound"
 import EnrollPage from "./pages/EnrollPage"
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="quote" element={<QuotePage />} />
         <Route path="booking" element={<BookingPage />} />
         <Route path="florida-growth" element={<FloridaGrowthContent />} />
+        <Route path="projects" element={<ProjectsPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/digital-marketing-for-ecommerce-businesses" element={<DigitalMarketingEcommerce />} />
         <Route path="privacy" element={<PrivacyPolicy />} />
