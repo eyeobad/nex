@@ -10,16 +10,16 @@ if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
 const teamMembers = [
   {
     id: 1,
-    name: "John Smith",
-    role: "CEO & Founder",
+    name: "Oguda Victor",
+    role: "Co-Founder",
     bio: "Architects the growth vision, aligning acquisition and retention motions around business outcomes.",
     initials: "JS",
     accent: "#D81F26",
   },
   {
     id: 2,
-    name: "Jane Doe",
-    role: "Director of Operations",
+    name: "Samuel Oladokun",
+    role: "Co-Founder",
     bio: "Keeps multidisciplinary squads sprinting in sync with razor-sharp communication and delivery rituals.",
     initials: "JD",
     accent: "#FD853A",
