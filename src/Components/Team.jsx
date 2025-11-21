@@ -13,7 +13,7 @@ const teamMembers = [
     name: "Oguda Victor",
     role: "Co-Founder",
     bio: "Architects the growth vision, aligning acquisition and retention motions around business outcomes.",
-    initials: "JS",
+    initials: "OG",
     accent: "#D81F26",
   },
   {
@@ -21,15 +21,15 @@ const teamMembers = [
     name: "Samuel Oladokun",
     role: "Co-Founder",
     bio: "Keeps multidisciplinary squads sprinting in sync with razor-sharp communication and delivery rituals.",
-    initials: "JD",
+    initials: "SO",
     accent: "#FD853A",
   },
   {
     id: 3,
-    name: "Michael Brown",
+    name: "VINCENT MAYOWA",
     role: "Senior SEO Strategist",
     bio: "Transforms search intent into scalable content engines that win rankings, traffic, and conversions.",
-    initials: "MB",
+    initials: "VM",
     accent: "#F83F62",
   },
   

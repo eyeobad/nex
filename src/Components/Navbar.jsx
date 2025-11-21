@@ -25,6 +25,7 @@ const primaryLinks = [
   },
   { label: "About us", href: "/about" },
   { label: "Use Cases", href: "/process" },
+  { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog", submenu: blogSubmenuLinks },
 ]
 
