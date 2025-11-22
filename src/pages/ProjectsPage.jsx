@@ -2,6 +2,29 @@ import React, { useEffect, useRef, memo, useMemo, useCallback } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 
+const preloadImages = (sources = []) => {
+  const head = document.head;
+  const links = sources.map((href) => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = href;
+    head.appendChild(link);
+    return link;
+  });
+  return () => {
+    links.forEach((link) => {
+      if (head.contains(link)) head.removeChild(link);
+    });
+  };
+};
+
+const slugify = (value = "") =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const projects = [
   {
     title: "Alpine Home Air",
@@ -57,7 +80,7 @@ const projects = [
 // Precompute expensive values
 const lightColors = new Set(["#FFFFFF", "#FFD700", "#E6E6E6"]);
 
-const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale }) => {
+const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale, slug }) => {
   const container = useRef(null);
   
   // Optimized scale transform with spring physics
@@ -171,9 +194,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
 
             <div className="flex pt-6 border-t border-white/5 mt-auto">
               <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/projects/${slug}`}
                 className="w-full flex justify-center items-center px-4 py-3 rounded-xl transition-all duration-150 text-sm font-bold gap-2 hover:opacity-90 active:opacity-80"
                 style={{
                   backgroundColor: color,
@@ -203,6 +224,7 @@ Card.propTypes = {
   progress: PropTypes.object,
   range: PropTypes.array,
   targetScale: PropTypes.number,
+  slug: PropTypes.string,
 };
 
 export default function Projects() {
@@ -225,10 +247,15 @@ export default function Projects() {
     projects.map((project, i) => {
       const targetScale = 1 - (projects.length - i) * 0.02;
       const range = [i * (1 / projects.length), 1];
-      return { ...project, i, targetScale, range };
+      return { ...project, i, targetScale, range, slug: slugify(project.title) };
     }), 
     []
   );
+
+  useEffect(() => {
+    const cleanup = preloadImages(projects.map((p) => p.src));
+    return cleanup;
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
