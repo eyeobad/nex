@@ -16,6 +16,7 @@ import DigitalMarketingEcommerce from "./pages/DigitalMarketingEcommerce"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import ProjectsPage from "./pages/ProjectsPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
+import ReviewPage from "./pages/ReviewPage"
 import TermsOfService from "./pages/TermsOfService"
 import NotFound from "./pages/NotFound"
 import EnrollPage from "./pages/EnrollPage"
@@ -40,6 +41,7 @@ const App = () => {
             path="blog/digital-marketing-for-ecommerce-businesses"
             element={<DigitalMarketingEcommerce />}
           />
+          <Route path="reviews" element={<ReviewPage />} />
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<TermsOfService />} />
           <Route path="enroll" element={<EnrollPage />} />
