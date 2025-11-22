@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, memo, useMemo, useCallback, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -80,7 +80,7 @@ const projects = [
 // Precompute expensive values
 const lightColors = new Set(["#FFFFFF", "#FFD700", "#E6E6E6"]);
 
-const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale, slug }) => {
+const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale, slug, isMobile }) => {
   const container = useRef(null);
   
   // Optimized scale transform with spring physics
@@ -122,7 +122,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="min-h-[85vh] md:h-screen flex items-center justify-center sticky top-0"
       style={{
         transform: 'translate3d(0,0,0)',
         backfaceVisibility: 'hidden',
@@ -133,7 +133,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
         className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
         style={{
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
+          top: isMobile ? `${i * 40}px` : `calc(-5vh + ${i * 25}px)`,
         }}
         // Reduced motion for better performance
         whileHover={{ y: -2 }}
@@ -225,10 +225,12 @@ Card.propTypes = {
   range: PropTypes.array,
   targetScale: PropTypes.number,
   slug: PropTypes.string,
+  isMobile: PropTypes.bool,
 };
 
 export default function Projects() {
   const container = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Smoother scroll with spring physics
   const { scrollYProgress } = useScroll({
@@ -268,6 +270,14 @@ export default function Projects() {
     }
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const setMatch = () => setIsMobile(mq.matches);
+    setMatch();
+    mq.addEventListener("change", setMatch);
+    return () => mq.removeEventListener("change", setMatch);
+  }, []);
+
   // Optimized overflow fix
   useEffect(() => {
     const mainElement = document.querySelector("main");
@@ -302,6 +312,7 @@ export default function Projects() {
             key={`project-${project.i}`}
             {...project}
             progress={smoothProgress} // Use smoothed progress
+            isMobile={isMobile}
           />
         ))}
       </section>

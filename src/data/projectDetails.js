@@ -8,7 +8,8 @@ export const projectDetails = [
     summary:
       "Built a conversion-focused HVAC retail experience with responsive layouts, tuned on-page SEO, and subtle motion to guide buyers through complex product choices.",
     liveUrl: "https://www.alpinehomeair.com/",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed:
+      "https://player.vimeo.com/video/1139594171?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
     challengeItems: [
       "Clarify complex HVAC product information for non-technical shoppers.",
       "Keep page performance fast while showcasing rich product media.",
@@ -26,6 +27,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Category grid and hero", image: "/alpinemockup.jpg" },
+      { caption: "Checkout and CTA flow", image: "/Alpine screenshot.png" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -38,7 +40,8 @@ export const projectDetails = [
     summary:
       "Delivered a premium roofing experience with proof-driven storytelling, rapid quote capture, and lightweight motion that keeps attention on CTAs.",
     liveUrl: "https://trustroofing.com/",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed:
+      "https://player.vimeo.com/video/1139594219?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
     challengeItems: [
       "Convert cold traffic into quote requests without overwhelming forms.",
       "Show social proof and workmanship quality in a concise hero.",
