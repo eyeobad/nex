@@ -122,7 +122,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
   return (
     <div 
       ref={container} 
-      className="min-h-screen flex items-center justify-center md:sticky md:top-0"
+      className="h-screen flex items-center justify-center sticky top-0"
       style={{
         transform: 'translate3d(0,0,0)',
         backfaceVisibility: 'hidden',
@@ -295,7 +295,7 @@ export default function Projects() {
       }}
     >
       <section 
-        className="text-white w-full bg-slate-950 pb-[20vh] mt-12"
+        className="text-white w-full bg-slate-950 pb-[20vh] mt-8 md:mt-12"
       >
         {projectConfigs.map((project) => (
           <Card
@@ -343,14 +343,6 @@ if (typeof document !== 'undefined') {
     /* Hardware acceleration for smooth scrolling */
     html {
       scroll-behavior: smooth;
-    }
-
-    /* Mobile: disable sticky stacking and custom top offsets */
-    @media (max-width: 767px) {
-      .project-motion {
-        position: relative !important;
-        top: 0 !important;
-      }
     }
   `;
   document.head.appendChild(style);
