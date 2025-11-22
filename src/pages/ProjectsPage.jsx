@@ -122,7 +122,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="min-h-screen flex items-center justify-center md:sticky md:top-0"
       style={{
         transform: 'translate3d(0,0,0)',
         backfaceVisibility: 'hidden',
@@ -130,11 +130,11 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
       }}
     >
       <motion.div
+        className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
         style={{
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className="relative flex flex-col items-center justify-center h-full w-full origin-top"
         // Reduced motion for better performance
         whileHover={{ y: -2 }}
         transition={{ type: "tween", duration: 0.15 }}
@@ -343,6 +343,14 @@ if (typeof document !== 'undefined') {
     /* Hardware acceleration for smooth scrolling */
     html {
       scroll-behavior: smooth;
+    }
+
+    /* Mobile: disable sticky stacking and custom top offsets */
+    @media (max-width: 767px) {
+      .project-motion {
+        position: relative !important;
+        top: 0 !important;
+      }
     }
   `;
   document.head.appendChild(style);
