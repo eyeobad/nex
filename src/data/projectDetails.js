@@ -59,6 +59,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and CTA stack", image: "/roofmockup.jpg" },
+      { caption: "Checkout and CTA flow", image: "/trust roofing screenshot.png" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -71,7 +72,7 @@ export const projectDetails = [
     summary:
       "Crafted a sensory-first cafe site that mirrors in-store ambiance with tasteful motion, vivid imagery, and quick access to menu and ordering.",
     liveUrl: "https://Coffee-pi-navy.vercel.app",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed: "https://player.vimeo.com/video/1139581873?badge=0&autopause=0&player_id=0&app_id=58479",
     challengeItems: [
       "Translate physical ambiance into a digital experience without hurting speed.",
       "Highlight signature items and seasonal drops above the fold.",
@@ -89,6 +90,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and featured drinks", image: "/cofeemockup.jpg" },
+      { caption: "Checkout and CTA flow", image: "/coffee screenshot.png" }, 
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -101,7 +103,7 @@ export const projectDetails = [
     summary:
       "Engineered a scalable shopping experience with clear taxonomy, fast product discovery, and a frictionless checkout optimized for mobile buyers.",
     liveUrl: "https://eyeobad.pythonanywhere.com/home",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed: "https://player.vimeo.com/video/1139586929?badge=0&autopause=0&player_id=0&app_id=58479",
     challengeItems: [
       "Handle large inventories while keeping navigation simple.",
       "Keep performance high with image-heavy product grids.",
@@ -119,6 +121,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Category grid and product detail", image: "/seun.jpg" },
+      { caption: "Checkout and CTA flow", image: "/seun screenshot.png" },  
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -131,7 +134,7 @@ export const projectDetails = [
     summary:
       "Designed a playful, high-conversion landing with strong social proof, token stats, and fast links to buy and community channels.",
     liveUrl: "https://www.justamemecoin.com/",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed: "https://player.vimeo.com/video/1139582677?badge=0&autopause=0&player_id=0&app_id=58479",
     challengeItems: [
       "Balance playful branding with trust and clarity for new visitors.",
       "Surface tokenomics and roadmap without overwhelming the page.",
@@ -149,6 +152,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and token stats", image: "/memecoin.jpg" },
+      { caption: "Roadmap and CTA flow", image: "/memecoin screenshot.png" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -161,7 +165,7 @@ export const projectDetails = [
     summary:
       "Built a visual-first bakery site highlighting signature items, seasonal drops, and an easy path to order or visit the shop.",
     liveUrl: "https://sweet-treats-landingpage.netlify.app/",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed: "https://player.vimeo.com/video/1139587264?badge=0&autopause=0&player_id=0&app_id=58479",
     challengeItems: [
       "Showcase bakery products without slowing page load.",
       "Create clear actions for order online and visit in-store.",
@@ -179,6 +183,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and feature grid", image: "/bakerymockup.jpg" },
+      { caption: "Menu and CTA flow", image: "/bakery screenshot.png" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
@@ -191,7 +196,7 @@ export const projectDetails = [
     summary:
       "Crafted a high-energy Solana experience that blends motion design, real-time data, and Web3 visuals without sacrificing speed.",
     liveUrl: "https://motiononsolana.com/",
-    vimeoEmbed: "https://player.vimeo.com/video/1125009062",
+    vimeoEmbed: "https://player.vimeo.com/video/1139600772?badge=0&autopause=0&player_id=0&app_id=58479",
     challengeItems: [
       "Use motion to communicate speed without overwhelming users.",
       "Surface live network stats alongside brand storytelling.",
@@ -209,6 +214,7 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and data highlights", image: "/motionmockup.jpg" },
+      { caption: "Interactive and CTA flow", image: "/motion screenshot.png" }
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },

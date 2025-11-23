@@ -2,6 +2,8 @@ import React, { useEffect, useRef, memo, useMemo, useCallback, useState } from "
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 
+// --- Utility Functions ---
+
 const preloadImages = (sources = []) => {
   const head = document.head;
   const links = sources.map((href) => {
@@ -24,6 +26,8 @@ const slugify = (value = "") =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+
+// --- Project Data ---
 
 const projects = [
   {
@@ -77,17 +81,21 @@ const projects = [
   },
 ];
 
-// Precompute expensive values
 const lightColors = new Set(["#FFFFFF", "#FFD700", "#E6E6E6"]);
+
+// --- Card Component (Fixed) ---
 
 const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale, slug, isMobile }) => {
   const container = useRef(null);
   
-  // Optimized scale transform with spring physics
   const scale = useTransform(progress, range, [1, targetScale], {
     clamp: false
   });
 
+  // Define offsets: Framer Motion 'y' for mobile, CSS 'top' for desktop
+  const mobileYOffset = `${i * 40}px`;
+  const desktopTopOffset = `calc(-5vh + ${i * 25}px)`; 
+  
   // Memoize expensive calculations
   const { textColor, cardStyle } = useMemo(() => {
     const isLight = lightColors.has(color);
@@ -98,7 +106,6 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
         maxWidth: "1000px",
         height: "auto",
         minHeight: "400px",
-        // Force GPU layer more efficiently
         transform: "translate3d(0,0,0)"
       }
     };
@@ -120,22 +127,29 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
   }, []);
 
   return (
+    // Outer Sticky Container (sticky top-0 is applied via Tailwind)
     <div 
       ref={container} 
       className="min-h-[85vh] md:h-screen flex items-center justify-center sticky top-0"
       style={{
+        // Hardware acceleration for the sticky container
         transform: 'translate3d(0,0,0)',
         backfaceVisibility: 'hidden',
         perspective: 1000,
+        height: isMobile ? "auto" : "100vh"
       }}
     >
       <motion.div
         className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
         style={{
           scale,
-          top: isMobile ? `${i * 40}px` : `calc(-5vh + ${i * 25}px)`,
+          // **THE FIX:** Conditional use of y (Framer Motion) or top (CSS)
+          // Desktop uses 'top' for reliable stacking offset.
+          // Mobile uses 'y' (translateY) to prevent jitter.
+          y: isMobile ? mobileYOffset : 0, 
+          top: isMobile ? 0 : desktopTopOffset, 
+          transform: 'translate3d(0,0,0)',
         }}
-        // Reduced motion for better performance
         whileHover={{ y: -2 }}
         transition={{ type: "tween", duration: 0.15 }}
       >
@@ -143,7 +157,7 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
           className="relative flex flex-col md:flex-row bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 shrink-0"
           style={cardStyle}
         >
-          {/* LEFT: Image (60%) - Optimized */}
+          {/* LEFT: Image (60%) */}
           <div 
             className="w-full md:w-[60%] h-[250px] md:h-[450px] relative overflow-hidden"
             onMouseEnter={handleHover}
@@ -154,17 +168,18 @@ const Card = memo(({ i, title, description, src, link, color, progress, range, t
                 src={src} 
                 alt={title} 
                 className="w-full h-full object-cover transition-transform duration-300 ease-out"
-                loading={i < 2 ? "eager" : "lazy"} // Load first 2 eagerly
+                loading={i < 2 ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={i === 0 ? "high" : "auto"}
                 style={{
                   contentVisibility: "auto",
                   imageRendering: "crisp-edges",
+                  transform: "translateZ(0)",
                 }}
               />
             </div>
 
-            {/* Optimized overlay without expensive mix-blend-mode */}
+            {/* Optimized overlay */}
             <div 
               className="absolute inset-0 opacity-0 transition-opacity duration-200 hover:opacity-20 pointer-events-none"
               style={{ backgroundColor: color }}
@@ -228,6 +243,8 @@ Card.propTypes = {
   isMobile: PropTypes.bool,
 };
 
+// --- Projects Component ---
+
 export default function Projects() {
   const container = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -280,12 +297,14 @@ export default function Projects() {
 
   // Optimized overflow fix
   useEffect(() => {
-    const mainElement = document.querySelector("main");
+    // Target main or body element to prevent horizontal scroll
+    const mainElement = document.querySelector("main") || document.body;
     if (!mainElement) return;
 
     const originalOverflow = mainElement.style.overflow;
     const originalOverflowX = mainElement.style.overflowX;
     
+    // Set overflow visible but clip horizontal scroll
     mainElement.style.overflow = "visible";
     mainElement.style.overflowX = "clip";
 
@@ -318,43 +337,4 @@ export default function Projects() {
       </section>
     </div>
   );
-}
-
-// Add performance CSS
-if (typeof document !== 'undefined') {
-  const style = document.createElement('style');
-  style.textContent = `
-    /* Critical performance optimizations */
-    * {
-      box-sizing: border-box;
-    }
-    
-    .sticky {
-      transform: translate3d(0,0,0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-    }
-    
-    /* Optimize image rendering */
-    img {
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      transform: translateZ(0);
-    }
-    
-    /* Reduce motion for preference */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-    
-    /* Hardware acceleration for smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-  `;
-  document.head.appendChild(style);
 }

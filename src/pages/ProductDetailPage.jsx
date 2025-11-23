@@ -71,7 +71,7 @@ export default function ProductDetailPage() {
           </div>
         </header>
 
-        {/* Screens & Flows (replaces hero) */}
+        {/* Screens & Flows (hero image) */}
         {primaryShot && (
           <section className="relative group max-w-5xl mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-b from-[#D81F26]/15 to-transparent opacity-30 blur-3xl rounded-[2rem]" />
@@ -161,58 +161,55 @@ export default function ProductDetailPage() {
           </div>
         </section>
 
-        {/* Video + Feature Visual */}
-        {product.vimeoEmbed && primaryShot && (
-          <section className="space-y-6">
-            <div className="border-l-2 border-red-400 pl-6">
-              <h2 className="text-2xl md:text-3xl font-bold font-space-grotesk">Project Demo & Key Screen</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl aspect-[4/3] md:aspect-video">
-                <iframe
-                  src={product.vimeoEmbed}
-                  title={`${product.title} demo video`}
-                  className="absolute inset-0 w-full h-full"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                  allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
-                ></iframe>
+        {/* COMBINED SECTION: Video Demo (Left) & Screens Flow (Right) */}
+        {(product.vimeoEmbed || remainingShots.length > 0) && (
+          <section className="grid lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left Column: Video - wider column for better visibility */}
+            {product.vimeoEmbed && (
+              <div className="lg:col-span-8 space-y-6">
+                <div className="border-l-2 border-red-400 pl-6">
+                  <h2 className="text-2xl md:text-3xl font-bold font-space-grotesk">Video Demo</h2>
+                </div>
+                <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl aspect-video">
+                  <iframe
+                    src={product.vimeoEmbed}
+                    title={`${product.title} demo video`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
               </div>
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl flex">
-                <img 
-                  src={primaryShot.image} 
-                  alt={primaryShot.caption || `${product.title} screen`} 
-                  className="w-full h-full object-cover" 
-                  loading="lazy" 
-                />
-              </div>
-            </div>
-          </section>
-        )}
+            )}
 
-        {/* Gallery Grid (remaining shots) */}
-        {remainingShots.length > 0 && (
-          <section className="space-y-6">
-            <div className="border-l-2 border-red-400 pl-6">
-              <h2 className="text-2xl md:text-3xl font-bold font-space-grotesk">Screens & Flows</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              {remainingShots.map((shot, i) => (
-                <figure key={i} className="group space-y-3">
-                  <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
-                    <img 
-                      src={shot.image} 
-                      alt={shot.caption} 
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" 
-                      loading="lazy" 
-                    />
-                  </div>
-                  <figcaption className="text-sm text-zinc-500 font-medium px-1">
-                    {shot.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            {/* Right Column: Remaining Gallery Shots - narrower column */}
+            {remainingShots.length > 0 && (
+              <div className={`space-y-6 ${product.vimeoEmbed ? 'lg:col-span-4' : 'lg:col-span-12'}`}>
+                <div className="border-l-2 border-red-400 pl-6">
+                  <h2 className="text-2xl md:text-3xl font-bold font-space-grotesk">Screens & Flows</h2>
+                </div>
+                {/* Changed to flex-col stack for sidebar layout */}
+                <div className="flex flex-col gap-8">
+                  {remainingShots.map((shot, i) => (
+                    <figure key={i} className="group space-y-3">
+                      <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
+                        <img 
+                          src={shot.image} 
+                          alt={shot.caption} 
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" 
+                          loading="lazy" 
+                        />
+                      </div>
+                      <figcaption className="text-sm text-zinc-500 font-medium px-1">
+                        {shot.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
