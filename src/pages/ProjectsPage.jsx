@@ -32,49 +32,56 @@ const slugify = (value = "") =>
 const projects = [
   {
     title: "Alpine Home Air",
-    description: "A high-performance HVAC retail platform featuring advanced on-page SEO architecture and fluid micro-animations.",
+    description:
+      "A high-performance HVAC retail platform featuring advanced on-page SEO architecture and fluid micro-animations.",
     src: "/alpinemockup.jpg",
     link: "https://www.alpinehomeair.com/",
     color: "#2E5C86",
   },
   {
     title: "Trust Roofing",
-    description: "A lead-generation powerhouse for roofing services. Strategically integrates high-conversion capture forms.",
+    description:
+      "A lead-generation powerhouse for roofing services. Strategically integrates high-conversion capture forms.",
     src: "/roofmockup.jpg",
     link: "https://trustroofing.com/",
     color: "#000080",
   },
   {
     title: "Black Cafe",
-    description: "An atmospheric digital storefront for a boutique coffee brand, designed to translate physical ambiance into a premium web experience.",
+    description:
+      "An atmospheric digital storefront for a boutique coffee brand, designed to translate physical ambiance into a premium web experience.",
     src: "/cofeemockup.jpg",
     link: "https://Coffee-pi-navy.vercel.app",
     color: "#1a1a1a",
   },
   {
     title: "E-Commerce Superstore",
-    description: "A comprehensive digital marketplace engineered for high-volume inventory management and seamless user checkout experiences.",
+    description:
+      "A comprehensive digital marketplace engineered for high-volume inventory management and seamless user checkout experiences.",
     src: "/seun.jpg",
     link: "https://eyeobad.pythonanywhere.com/home",
     color: "#FFFFFF",
   },
   {
     title: "Just a Memecoin",
-    description: "A viral-architected brand platform designed with high-impact typography and frictionless user flows.",
+    description:
+      "A viral-architected brand platform designed with high-impact typography and frictionless user flows.",
     src: "/memecoin.jpg",
     link: "https://www.justamemecoin.com/",
     color: "#FFD700",
   },
   {
     title: "Artisanal Bakery",
-    description: "A visual-first landing page designed to showcase product quality and drive local foot traffic through appetizing UI design.",
+    description:
+      "A visual-first landing page designed to showcase product quality and drive local foot traffic through appetizing UI design.",
     src: "/bakerymockup.jpg",
     link: "https://sweet-treats-landingpage.netlify.app/",
     color: "#A0522D",
   },
   {
     title: "Motion on Solana",
-    description: "An immersive Web3 interface featuring GPU-accelerated motion graphics and real-time blockchain data.",
+    description:
+      "An immersive Web3 interface featuring GPU-accelerated motion graphics and real-time blockchain data.",
     src: "/motionmockup.jpg",
     link: "https://motiononsolana.com/",
     color: "#9945FF",
@@ -85,147 +92,152 @@ const lightColors = new Set(["#FFFFFF", "#FFD700", "#E6E6E6"]);
 
 // --- Card Component (Fixed) ---
 
-const Card = memo(({ i, title, description, src, link, color, progress, range, targetScale, slug, isMobile }) => {
-  const container = useRef(null);
-  
-  const scale = useTransform(progress, range, [1, targetScale], {
-    clamp: false
-  });
+const Card = memo(
+  ({
+    i,
+    title,
+    description,
+    src,
+    link,
+    color,
+    progress,
+    range,
+    targetScale,
+    slug,
+    isMobile,
+  }) => {
+    const container = useRef(null);
 
-  // Define offsets: Framer Motion 'y' for mobile, CSS 'top' for desktop
-  const mobileYOffset = `${i * 40}px`;
-  const desktopTopOffset = `calc(-5vh + ${i * 25}px)`; 
-  
-  // Memoize expensive calculations
-  const { textColor, cardStyle } = useMemo(() => {
-    const isLight = lightColors.has(color);
-    return {
-      textColor: isLight ? "#000000" : "#FFFFFF",
-      cardStyle: { 
-        width: "90vw",
-        maxWidth: "1000px",
-        height: "auto",
-        minHeight: "400px",
-        transform: "translate3d(0,0,0)"
+    const scale = useTransform(progress, range, [1, targetScale], {
+      clamp: false,
+    });
+
+    // Define offsets: Framer Motion 'y' for mobile, CSS 'top' for desktop
+    const mobileYOffset = `${i * 40}px`;
+    const desktopTopOffset = `calc(-5vh + ${i * 25}px)`;
+
+    // Memoize expensive calculations
+    const { textColor, cardStyle } = useMemo(() => {
+      const isLight = lightColors.has(color);
+      return {
+        textColor: isLight ? "#000000" : "#FFFFFF",
+        cardStyle: {
+          width: "90vw",
+          maxWidth: "1000px",
+          height: "auto",
+          minHeight: "400px",
+        },
+      };
+    }, [color]);
+
+    // Optimized hover handler
+    const handleHover = useCallback((e) => {
+      const img = e.currentTarget.querySelector("img");
+      if (img) {
+        img.style.transform = "scale(1.05)";
       }
-    };
-  }, [color]);
+    }, []);
 
-  // Optimized hover handler
-  const handleHover = useCallback((e) => {
-    const img = e.currentTarget.querySelector('img');
-    if (img) {
-      img.style.transform = 'scale(1.05)';
-    }
-  }, []);
+    const handleHoverEnd = useCallback((e) => {
+      const img = e.currentTarget.querySelector("img");
+      if (img) {
+        img.style.transform = "scale(1)";
+      }
+    }, []);
 
-  const handleHoverEnd = useCallback((e) => {
-    const img = e.currentTarget.querySelector('img');
-    if (img) {
-      img.style.transform = 'scale(1)';
-    }
-  }, []);
-
-  return (
-    // Outer Sticky Container (sticky top-0 is applied via Tailwind)
-    <div 
-      ref={container} 
-      className="min-h-[85vh] md:h-screen flex items-center justify-center sticky top-0"
-      style={{
-        // Hardware acceleration for the sticky container
-        transform: 'translate3d(0,0,0)',
-        backfaceVisibility: 'hidden',
-        perspective: 1000,
-        height: isMobile ? "auto" : "100vh"
-      }}
-    >
-      <motion.div
-        className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
+    return (
+      // Outer Sticky Container
+      <div
+        ref={container}
+        className="min-h-[85vh] md:h-screen flex items-center justify-center sticky top-0"
         style={{
-          scale,
-          // **THE FIX:** Conditional use of y (Framer Motion) or top (CSS)
-          // Desktop uses 'top' for reliable stacking offset.
-          // Mobile uses 'y' (translateY) to prevent jitter.
-          y: isMobile ? mobileYOffset : 0, 
-          top: isMobile ? 0 : desktopTopOffset, 
-          transform: 'translate3d(0,0,0)',
+          height: isMobile ? "auto" : "100vh",
         }}
-        whileHover={{ y: -2 }}
-        transition={{ type: "tween", duration: 0.15 }}
       >
-        <div
-          className="relative flex flex-col md:flex-row bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 shrink-0"
-          style={cardStyle}
+        <motion.div
+          className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
+          style={{
+            scale,
+            // Mobile uses 'y' (translateY) for stacking; desktop uses 'top'
+            y: isMobile ? mobileYOffset : 0,
+            top: isMobile ? 0 : desktopTopOffset,
+          }}
+          whileHover={{ y: -2 }}
+          transition={{ type: "tween", duration: 0.15 }}
         >
-          {/* LEFT: Image (60%) */}
-          <div 
-            className="w-full md:w-[60%] h-[250px] md:h-[450px] relative overflow-hidden"
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHoverEnd}
+          <div
+            className="relative flex flex-col md:flex-row bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 shrink-0"
+            style={cardStyle}
           >
-            <div className="w-full h-full transition-transform duration-300 ease-out">
-              <img 
-                src={src} 
-                alt={title} 
-                className="w-full h-full object-cover transition-transform duration-300 ease-out"
-                loading={i < 2 ? "eager" : "lazy"}
-                decoding="async"
-                fetchPriority={i === 0 ? "high" : "auto"}
-                style={{
-                  contentVisibility: "auto",
-                  imageRendering: "crisp-edges",
-                  transform: "translateZ(0)",
-                }}
+            {/* LEFT: Image (60%) */}
+            <div
+              className="w-full md:w-[60%] h-[250px] md:h-[450px] relative overflow-hidden"
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHoverEnd}
+            >
+              <div className="w-full h-full transition-transform duration-300 ease-out">
+                <img
+                  src={src}
+                  alt={title}
+                  className="w-full h-full object-cover transition-transform duration-300 ease-out"
+                  loading={i < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  style={{
+                    contentVisibility: "auto",
+                    imageRendering: "crisp-edges",
+                    transform: "translateZ(0)",
+                  }}
+                />
+              </div>
+
+              {/* Optimized overlay */}
+              <div
+                className="absolute inset-0 opacity-0 transition-opacity duration-200 hover:opacity-20 pointer-events-none"
+                style={{ backgroundColor: color }}
               />
             </div>
 
-            {/* Optimized overlay */}
-            <div 
-              className="absolute inset-0 opacity-0 transition-opacity duration-200 hover:opacity-20 pointer-events-none"
-              style={{ backgroundColor: color }}
-            />
-          </div>
+            {/* RIGHT: Content (40%) */}
+            <div className="w-full md:w-[40%] p-6 md:p-8 flex flex-col justify-between bg-zinc-900">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: color }}
+                  />
+                  <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                    Project 0{i + 1}
+                  </span>
+                </div>
 
-          {/* RIGHT: Content (40%) */}
-          <div className="w-full md:w-[40%] p-6 md:p-8 flex flex-col justify-between bg-zinc-900">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: color }}
-                />
-                <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
-                  Project 0{i + 1}
-                </span>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 font-space-grotesk leading-tight">
+                  {title}
+                </h3>
+                <p className="text-sm text-zinc-400 leading-relaxed line-clamp-4">
+                  {description}
+                </p>
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-space-grotesk leading-tight">
-                {title}
-              </h3>
-              <p className="text-sm text-zinc-400 leading-relaxed line-clamp-4">
-                {description}
-              </p>
-            </div>
-
-            <div className="flex pt-6 border-t border-white/5 mt-auto">
-              <a
-                href={`/projects/${slug}`}
-                className="w-full flex justify-center items-center px-4 py-3 rounded-xl transition-all duration-150 text-sm font-bold gap-2 hover:opacity-90 active:opacity-80"
-                style={{
-                  backgroundColor: color,
-                  color: textColor,
-                  transform: 'translate3d(0,0,0)'
-                }}
-              >
-                Live Demo
-              </a>
+              <div className="flex pt-6 border-t border-white/5 mt-auto">
+                <a
+                  href={`/projects/${slug}`}
+                  className="w-full flex justify-center items-center px-4 py-3 rounded-xl transition-all duration-150 text-sm font-bold gap-2 hover:opacity-90 active:opacity-80"
+                  style={{
+                    backgroundColor: color,
+                    color: textColor,
+                  }}
+                >
+                  Live Demo
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-});
+        </motion.div>
+      </div>
+    );
+  }
+);
 
 Card.displayName = "Card";
 
@@ -248,7 +260,7 @@ Card.propTypes = {
 export default function Projects() {
   const container = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   // Smoother scroll with spring physics
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"],
@@ -258,16 +270,23 @@ export default function Projects() {
     stiffness: 150,
     damping: 40,
     mass: 0.1,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   // Memoize project calculations
-  const projectConfigs = useMemo(() => 
-    projects.map((project, i) => {
-      const targetScale = 1 - (projects.length - i) * 0.02;
-      const range = [i * (1 / projects.length), 1];
-      return { ...project, i, targetScale, range, slug: slugify(project.title) };
-    }), 
+  const projectConfigs = useMemo(
+    () =>
+      projects.map((project, i) => {
+        const targetScale = 1 - (projects.length - i) * 0.02;
+        const range = [i * (1 / projects.length), 1];
+        return {
+          ...project,
+          i,
+          targetScale,
+          range,
+          slug: slugify(project.title),
+        };
+      }),
     []
   );
 
@@ -303,7 +322,7 @@ export default function Projects() {
 
     const originalOverflow = mainElement.style.overflow;
     const originalOverflowX = mainElement.style.overflowX;
-    
+
     // Set overflow visible but clip horizontal scroll
     mainElement.style.overflow = "visible";
     mainElement.style.overflowX = "clip";
@@ -315,22 +334,13 @@ export default function Projects() {
   }, []);
 
   return (
-    <div 
-      className="bg-black relative z-10" 
-      ref={container}
-      style={{
-        transform: 'translate3d(0,0,0)',
-        backfaceVisibility: 'hidden'
-      }}
-    >
-      <section 
-        className="text-white w-full bg-slate-950 pb-[20vh] mt-8 md:mt-12"
-      >
+    <div className="bg-black relative z-10" ref={container}>
+      <section className="text-white w-full bg-slate-950 pb-[20vh] mt-8 md:mt-12">
         {projectConfigs.map((project) => (
           <Card
             key={`project-${project.i}`}
             {...project}
-            progress={smoothProgress} // Use smoothed progress
+            progress={smoothProgress}
             isMobile={isMobile}
           />
         ))}
