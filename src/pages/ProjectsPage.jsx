@@ -90,7 +90,7 @@ const projects = [
 
 const lightColors = new Set(["#FFFFFF", "#FFD700", "#E6E6E6"]);
 
-// --- Card Component (Fixed) ---
+// --- Card Component ---
 
 const Card = memo(
   ({
@@ -112,11 +112,9 @@ const Card = memo(
       clamp: false,
     });
 
-    // Define offsets: Framer Motion 'y' for mobile, CSS 'top' for desktop
-    const mobileYOffset = `${i * 40}px`;
+    // Desktop offset stack (using top). Mobile will not use extra offset to avoid jitter.
     const desktopTopOffset = `calc(-5vh + ${i * 25}px)`;
 
-    // Memoize expensive calculations
     const { textColor, cardStyle } = useMemo(() => {
       const isLight = lightColors.has(color);
       return {
@@ -130,7 +128,6 @@ const Card = memo(
       };
     }, [color]);
 
-    // Optimized hover handler
     const handleHover = useCallback((e) => {
       const img = e.currentTarget.querySelector("img");
       if (img) {
@@ -146,7 +143,6 @@ const Card = memo(
     }, []);
 
     return (
-      // Outer Sticky Container
       <div
         ref={container}
         className="min-h-[85vh] md:h-screen flex items-center justify-center sticky top-0"
@@ -157,9 +153,10 @@ const Card = memo(
         <motion.div
           className="relative flex flex-col items-center justify-center h-full w-full origin-top project-motion"
           style={{
+            // Keep scale on both; main visual effect is on desktop.
             scale,
-            // Mobile uses 'y' (translateY) for stacking; desktop uses 'top'
-            y: isMobile ? mobileYOffset : 0,
+            // No y-translate on mobile = less layout fighting, still sticky.
+            y: 0,
             top: isMobile ? 0 : desktopTopOffset,
           }}
           whileHover={{ y: -2 }}
@@ -191,7 +188,6 @@ const Card = memo(
                 />
               </div>
 
-              {/* Optimized overlay */}
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-200 hover:opacity-20 pointer-events-none"
                 style={{ backgroundColor: color }}
@@ -261,8 +257,8 @@ export default function Projects() {
   const container = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Smoother scroll with spring physics
   const { scrollYProgress } = useScroll({
+    target: container,
     offset: ["start start", "end end"],
   });
 
@@ -273,7 +269,6 @@ export default function Projects() {
     restDelta: 0.001,
   });
 
-  // Memoize project calculations
   const projectConfigs = useMemo(
     () =>
       projects.map((project, i) => {
@@ -314,16 +309,13 @@ export default function Projects() {
     return () => mq.removeEventListener("change", setMatch);
   }, []);
 
-  // Optimized overflow fix
   useEffect(() => {
-    // Target main or body element to prevent horizontal scroll
     const mainElement = document.querySelector("main") || document.body;
     if (!mainElement) return;
 
     const originalOverflow = mainElement.style.overflow;
     const originalOverflowX = mainElement.style.overflowX;
 
-    // Set overflow visible but clip horizontal scroll
     mainElement.style.overflow = "visible";
     mainElement.style.overflowX = "clip";
 
