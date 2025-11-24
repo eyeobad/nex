@@ -34,7 +34,7 @@ export const projectDetails = [
   {
     slug: "epic-roofing",
     title: "Epic Roofing",
-    heroImage: "/epic roofing.png",
+    heroImage: "/epic roofing mockup.jpg",
     heroAlt: "Epic Roofing landing page mockup",
     headline: "High-impact roofing lead generation with decisive CTAs and credibility anchors.",
     summary:
@@ -57,7 +57,8 @@ export const projectDetails = [
       { title: "Build & QA", body: "Optimized assets, tightened form flow, and validated mobile-first experience." },
     ],
     gallery: [
-      { caption: "Hero and quote CTA", image: "/epic roofing.png" },
+      { caption: "Hero and quote CTA", image: "/epic roofing mockup.jpg" },
+      { caption: "Checkout and CTA flow", image: "/epic roofing.png" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
