@@ -32,6 +32,37 @@ export const projectDetails = [
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
   {
+    slug: "epic-roofing",
+    title: "Epic Roofing",
+    heroImage: "/epic roofing.png",
+    heroAlt: "Epic Roofing landing page mockup",
+    headline: "High-impact roofing lead generation with decisive CTAs and credibility anchors.",
+    summary:
+      "Designed a decisive roofing landing that pairs bold CTAs with proof-driven content, rapid quote capture, and performance-focused media.",
+    liveUrl: "",
+    vimeoEmbed: "https://player.vimeo.com/video/1140047734?h=5bc5aae2c1&badge=0&autopause=0&player_id=0&app_id=58479%2Fembed",
+    challengeItems: [
+      "Keep homeowners focused on a single conversion path without distractions.",
+      "Surface trust signals (reviews, certifications) without clutter.",
+      "Maintain fast load times with rich hero media and above-the-fold CTA.",
+    ],
+    solutionItems: [
+      "Hero CTA and sticky prompts tuned to reduce form abandonment.",
+      "Proof stack with badges/testimonials placed near primary CTAs.",
+      "Optimized imagery (preload hero, lazy-load support shots) to protect performance.",
+    ],
+    process: [
+      { title: "Discovery", body: "Mapped homeowner objections and proof placement to back every CTA." },
+      { title: "UX & Visuals", body: "Built a bold hero, clarified offer, and staged proof adjacent to conversion points." },
+      { title: "Build & QA", body: "Optimized assets, tightened form flow, and validated mobile-first experience." },
+    ],
+    gallery: [
+      { caption: "Hero and quote CTA", image: "/epic roofing.png" },
+      { caption: "Service detail and proof", image: "/epic roofing.jpeg" },
+    ],
+    otherProjects: [{ title: "See all projects", href: "/projects" }],
+  },
+  {
     slug: "trust-roofing",
     title: "Trust Roofing",
     heroImage: "/roofmockup.jpg",

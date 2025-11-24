@@ -59,6 +59,14 @@ const projects = [
     color: "#000080",
   },
   {
+    title: "Epic Roofing",
+    description:
+      "A bold roofing lead-gen experience with strong CTAs, proof, and a streamlined quote flow.",
+    src: "/epic roofing.jpeg",
+    link: "/projects/epic-roofing",
+    color: "#F35F38",
+  },
+  {
     title: "Black Cafe",
     description:
       "An atmospheric digital storefront for a boutique coffee brand, designed to translate physical ambiance into a premium web experience.",
