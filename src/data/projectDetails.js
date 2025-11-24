@@ -39,7 +39,7 @@ export const projectDetails = [
     headline: "High-impact roofing lead generation with decisive CTAs and credibility anchors.",
     summary:
       "Designed a decisive roofing landing that pairs bold CTAs with proof-driven content, rapid quote capture, and performance-focused media.",
-    liveUrl: "",
+    liveUrl: "https://epicroofreplacement.com/",
     vimeoEmbed: "https://player.vimeo.com/video/1140047734?h=5bc5aae2c1&badge=0&autopause=0&player_id=0&app_id=58479%2Fembed",
     challengeItems: [
       "Keep homeowners focused on a single conversion path without distractions.",
