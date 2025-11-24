@@ -62,7 +62,7 @@ const projects = [
     title: "Epic Roofing",
     description:
       "A bold roofing lead-gen experience with strong CTAs, proof, and a streamlined quote flow.",
-    src: "/epic roofing.jpeg",
+    src: "/epic roofing mockup.jpg",
     link: "/projects/epic-roofing",
     color: "#F35F38",
   },

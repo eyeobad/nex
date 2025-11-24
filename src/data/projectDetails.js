@@ -58,7 +58,6 @@ export const projectDetails = [
     ],
     gallery: [
       { caption: "Hero and quote CTA", image: "/epic roofing.png" },
-      { caption: "Service detail and proof", image: "/epic roofing.jpeg" },
     ],
     otherProjects: [{ title: "See all projects", href: "/projects" }],
   },
